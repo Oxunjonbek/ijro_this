@@ -1,0 +1,39 @@
+/*================================================================================
+	Item Name: Robust - Responsive Admin Template
+	Version: 2.0
+	Author: PIXINVENT
+	Author URL: http://www.themeforest.net/user/pixinvent
+================================================================================
+
+NOTE:
+------
+PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
+WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+
+
+.grid-view table td, .grid-view table th {
+    padding-right: 0.3rem !important;
+    padding-left: 0.3rem !important;
+}
+
+table.table-p-0 td, table.table-p-0 th {
+    padding-right: 0.3rem !important;
+    padding-left: 0.3rem !important;
+}
+
+table td.p-0, table th.p-0 {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+table.table-p-0 td.p-0, table.table-p-0 th.p-0 {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+
+select.input-sm {
+    padding-left: 0.95rem !important;
+    padding-right: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
