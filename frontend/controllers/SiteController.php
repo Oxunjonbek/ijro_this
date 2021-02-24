@@ -308,7 +308,7 @@ class SiteController extends Controller
     }
     public function actionBolum()
     {
-        $company =  Company::find()->where(['parent'=>'bolum'])->all();
+        $company =  Company::find()->where(['parent'=>'bo`lim'])->all();
         return $this->render('bolum',['company'=>$company]);
     }
     public function actionTizim()
