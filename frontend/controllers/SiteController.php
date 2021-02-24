@@ -86,7 +86,9 @@ class SiteController extends Controller
             }
         }
 
-        return $this->render('index');
+        $tadbir = Tadbir::find()->all();
+        $company =  Company::find()->all();
+        return $this->render('index',['tadbir'=>$tadbir,'company'=>$company]);
     }
 
     /**
