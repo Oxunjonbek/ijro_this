@@ -23,26 +23,11 @@ use mihaildev\ckeditor\CKEditor;
                     'size' => 'xs',
                 ]); ?>
 
-    <?=  $form->field($model, 'tadbir_name')->widget(CKEditor::className(),[
-    'editorOptions' => [
-        // 'preset' => 'basic', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
-        'inline' => true, //по умолчанию false
-    ],
-]); ?>
+    <?=  $form->field($model, 'tadbir_name')->textarea(['rows' => '6'])  ?>
 
-    <?=  $form->field($model, 'tadbir_content')->widget(CKEditor::className(),[
-    'editorOptions' => [
-        // 'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
-        'inline' => true, //по умолчанию false
-    ],
-]); ?>
+    <?=  $form->field($model, 'tadbir_content')->textarea(['rows' => '6'])  ?>
 
-    <?=  $form->field($model, 'tadbir_result')->widget(CKEditor::className(),[
-    'editorOptions' => [
-        //'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
-        'inline' => true, //по умолчанию false
-    ],
-]); ?>
+    <?=  $form->field($model, 'tadbir_result')->textarea(['rows' => '6'])  ?>
 
     <?= $form->field($model, 'tadbir_date',['options'=>['class'=>'col-md-4']])->widget(\kartik\date\DatePicker::classname(),[
             'options' => ['placeholder' => 'Tadbir  kunni kiriting'],
@@ -52,17 +37,13 @@ use mihaildev\ckeditor\CKEditor;
             ]
         ]); ?>
 
-    <?=  $form->field($model, 'tadbir_description')->widget(CKEditor::className(),[
-    'editorOptions' => [
-        // 'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
-        'inline' => true, //по умолчанию false
-    ],
-]); ?>
+    <?=  $form->field($model, 'tadbir_description')->textarea(['rows' => '6'])  ?>
 
     <?=  $form->field($model, 'tadbir_status')->dropDownList([
         'bajarildi'=>'bajarildi',
         'bajarilmadi'=>'bajarilmadi',
-        'bajarilmoqda'=>'bajarilmoqda',
+        'ijroda'=>'ijroda',
+        // 'kechiktirilmoqda'=>'kechiktirilmoqda',
     ],['prompt'=>'Tanlash']); ?>
 
     

@@ -28,8 +28,43 @@ $this->params['breadcrumbs'][] = $this->title;
 
             // 'id',
             'company_name:ntext',
+            'parent:ntext',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+          'template' => '{update}{view}{delete}',
+        'buttons' => [
+            'delete' => function ($url, $model) {
+                return Html::a(
+                    '<span class="fa fa-trash" style="font-size:14px;"></span>', ['delete', 'id' => $model->id],
+                    [
+                        'data' => [
+                            'method' => 'POST',
+                            'confirm' => 'Вы уверены, что хотите удалить этот элемент?',
+                            'pjax' => false
+                        ],
+                        'title' => 'Удалить',
+                        'aria-label' => 'Удалить',
+                        'style' => 'display: contents'
+                    ]);
+            },
+            'view' => function ($url, $model) {
+                return Html::a('<span class="fa fa-eye" style="font-size:14px;"></span>', ['view', 'id' => $model->id], ['title' => 'Просмотр', 'aria-label' => 'Просмотр']);
+            }
+            // 'update' => function ($url, $model) {
+            //     return Html::a(
+            //         '<span class="fa fa-pencil-square-o" style="font-size:14px;"></span>', 'javascript:void(0)',
+            //         ['update',
+            //             'data' => [
+            //                 'id' => $model->id,
+            //             ],
+            //             'title' => 'O\'zgaritirish',
+            //             'aria-label' => 'O\'zgaritirish',
+            //             'class' => 'update-tadbir',
+            //             'style' => 'display: contents'
+            //         ]);
+            // }
+        ],
+        ],
         ],
     ]); ?>
 

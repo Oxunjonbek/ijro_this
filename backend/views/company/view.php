@@ -31,6 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'company_name:ntext',
+            'parent:ntext',
         ],
     ]) ?>
 

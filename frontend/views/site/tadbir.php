@@ -60,10 +60,11 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                     <table class="table table-hover mb-10">
                         <thead>
                             <tr>
-                                <th>Tashkilotlar</th>
-                                <!-- <th>Ma`sul</th>
-                                <th>Statusi</th> -->
-                                <th>Foizda</th>
+                                <th class="width-350 ">Tashkilotlar</th>
+                                
+                                <!-- <th>Statusi</th> -->
+                                <th class="width-350 text-center">Foizda</th>
+                                <th class="width-350 text-center">Tadbir soni</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -73,44 +74,52 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                                 <td class="text-truncate">
 
                                   <?=$value->company_name?></td>
-                                
-                                <td class="valign-middle">
+                                  <?php $count = count(common\models\Tadbir::find()->where(['company_id'=>$value->id])->all());
+
+                                  $calculate = count(common\models\Tadbir::find()->where(['company_id'=>$value->id,'tadbir_status'=>'bajarildi'])->all());
+// echo $calculate;die();
+                                  // $result = ($calculate/$count)*100;
+                                  ?>
+                                  <td class="valign-middle">
                                     <div class="progress m-0" style="height: 50px;">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 88%" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </td>
+                                <td class="text-center"> 
+                                    <?= $count; ?>
+                                </td>
                             </tr>
-                          <?php endforeach;?>
-                          
-                        </tbody>
-                    </table>
-                </div>
+                        <?php endforeach;?>
+
+                    </tbody>
+                </table>
             </div>
         </div>
-          <!-- Project Overview -->
-  <?php foreach ($company as $key => $com) : ?>
-   <!-- UI components start -->
-<div class="row" id="ui">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-header">
-                <h4 class="card-title"><?=$com->company_name?></h4>
-                <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
-                <div class="heading-elements">
-                    <ul class="list-inline mb-0">
-                        <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                        <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                        <li><a data-action="close"><i class="ft-x"></i></a></li>
-                    </ul>
+    </div>
+    <!-- Project Overview -->
+    <?php foreach ($company as $key => $com) : ?>
+     <!-- UI components start -->
+     <div class="row" id="ui">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title"><?=$com->company_name?></h4>
+                    <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                    <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                            <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                            <li><a data-action="close"><i class="ft-x"></i></a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <?php
-            $tadbirlar = common\models\Tadbir::find()->where(['company_id'=>$com->id])->all(); ?>
-            <div class="card-content collapse show">
-                <div class="table-responsive">
-                    <table class="table table-responsive table-bordered mb-10">
-                       <thead>
+                <?php
+                $tadbirlar = common\models\Tadbir::find()->where(['company_id'=>$com->id])->all(); ?>
+                <div class="card-content collapse show">
+                    <div class="table-responsive">
+                        <table class="table table-responsive table-bordered mb-10">
+                         <thead>
                             <tr>
                                 <th>Тадбир номи</th>
                                 <th>Амалга ошириш механизми</th>
@@ -120,176 +129,47 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                                 <th>Ижро ҳолати</th>
                             </tr>
                         </thead>
-                        <tbody><?php foreach ($tadbirlar as $key => $tadbir) : ?>
-                            <tr>
-                              <td>
-                                  <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Тадбир номи</h4>
-                    <a class="heading-elements-toggle"><i class="ft-ellipsis-h font-medium-3"></i></a>
-                    <div class="heading-elements">
-                        <ul class="list-inline mb-0">
-                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                            <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                            <!-- <li><a data-action="close"><i class="ft-x"></i></a></li> -->
-                        </ul>
-                    </div>
-                </div>
-                <div class="card-content collapse show">
-                    <div class="card-body">
-                        <p class="card-text"><?=$tadbir->tadbir_name ?></p>
-                        <div class="chart-container">
-                            <div id="bar-chart"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-  </td>
-                              <td> <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Амалга ошириш механизми</h4>
-                    <a class="heading-elements-toggle"><i class="ft-ellipsis-h font-medium-3"></i></a>
-                    <div class="heading-elements">
-                        <ul class="list-inline mb-0">
-                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                            <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                            <!-- <li><a data-action="close"><i class="ft-x"></i></a></li> -->
-                        </ul>
-                    </div>
-                </div>
-                <div class="card-content collapse show">
-                    <div class="card-body">
-                        <p class="card-text"><?=$tadbir->tadbir_content ?></p>
-                        <div class="chart-container">
-                            <div id="bar-chart"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-  </td>
-                              <td>
-                                <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Эришиладиган натижа ва кўрсаткичлар</h4>
-                    <a class="heading-elements-toggle"><i class="ft-ellipsis-h font-medium-3"></i></a>
-                    <div class="heading-elements">
-                        <ul class="list-inline mb-0">
-                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                            <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                            <!-- <li><a data-action="close"><i class="ft-x"></i></a></li> -->
-                        </ul>
-                    </div>
-                </div>
-                <div class="card-content collapse show">
-                    <div class="card-body">
-                        <p class="card-text"><?=$tadbir->tadbir_description ?></p>
-                        <div class="chart-container">
-                            <div id="bar-chart"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-  </td>
-  <td class="width-200"><?=$tadbir->tadbir_date ?></td>
-                                <td class="width-200">x<?=$tadbir->tadbir_result ?></td>
-                                
-                                <td class="width-350">
+                        <tbody>
+                            <?php foreach ($tadbirlar as $key => $tadbir) : ?>
+                                <tr>
+
+                                    <td class="width-300 height-300 ">
+
+                                      <?=$tadbir->tadbir_name ?>
+                                  </td>
+                                  <td class="width-300 height-300 "> 
+                                     <?=$tadbir->tadbir_content ?>
+                                 </td>
+                                 <td class="width-300 height-300 ">
+                                     <?=$tadbir->tadbir_description ?>
+                                 </td>
+                                 <td class="width-50"><?=$tadbir->tadbir_date ?></td>
+                                 <td class="width-100"><?=$tadbir->tadbir_result ?></td>
+
+                                 <td class="width-100">
+                                  <?php if($tadbir->tadbir_status==="bajarildi"): ?>
                                     <button type="button" class="btn btn-success mr-1 mb-1"><?=$tadbir->tadbir_status ?></button>
+                                    <?php elseif($tadbir->tadbir_status==="bajarilmadi"): ?>
+                                    <button type="button" class="btn btn-danger mr-1 mb-1"><?=$tadbir->tadbir_status ?></button>
+                                  <?php elseif($tadbir->tadbir_status==="ijroda"): ?>
+                                  <button type="button" class="btn btn-warning mr-1 mb-1"><?=$tadbir->tadbir_status ?></button>
+                                  <?php endif; ?>
                                 </td>
                                 
                             </tr>
-                          <?php endforeach; ?>
-                            <!-- <tr>
-                                <td>Round Buttons</td>
-                                <td>
-                                    <button type="button" class="btn btn-danger btn-round mr-1 mb-1">Default Buttons</button>
-                                </td>
-                                <td>Use <code>.btn-round</code> class to button for Round Buttons.</td>
-                            </tr>
-                            <tr>
-                                <td>Button dropdowns</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-info dropdown-toggle mr-1 mb-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Info</button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Separated link</a>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Turn a button into a dropdown toggle with some basic markup changes.</td>
-                            </tr>
-                            <tr>
-                                <td>Basic Button group</td>
-                                <td>
-                                    <div class="btn-group" role="group" aria-label="Basic example">
-                                        <button type="button" class="btn btn-primary">Primary</button>
-                                        <button type="button" class="btn btn-success">Success</button>
-                                        <button type="button" class="btn btn-warning">Warning</button>
-                                    </div>
-                                </td>
-                                <td>Group a series of buttons together on a single line with the button group. Wrap a series of buttons with <code>.btn</code> in <code>.btn-group.</code></td>
-                            </tr>
-                            <tr>
-                                <td>Buttons with Icon</td>
-                                <td>
-                                    <button type="button" class="btn btn-info mr-1 mb-1"><i class="ft-info"></i> Info</button>
-                                </td>
-                                <td>Bootstrap includes six predefined button styles, each serving its own semantic purpose.</td>
-                            </tr>
-                            <tr>
-                                <td>Icon Button</td>
-                                <td>
-                                    <button type="button" class="btn btn-icon btn-success mr-1"><i class="ft-camera"></i></button>
-                                </td>
-                                <td>Simple Icon Button</td>
-                            </tr>
-                            <tr>
-                                <td>Floating Buttons</td>
-                                <td>
-                                    <button type="button" class="btn btn-float btn-info"><i class="ft-search"></i><span>search</span></button>
-                                </td>
-                                <td>Floating action buttons are used for a special type of promoted action. They are distinguished by a circled icon floating above the UI and have special motion behaviors related to morphing, launching, and the transferring anchor point.
-                                    <p>
-                                        Use the class <code>.btn</code> along with class <code>.btn-floating</code></p> .</td>
-                            </tr>
-                            <tr>
-                                <td>Loading Buttons</td>
-                                <td>
-                                    <button class="btn btn-primary mr-1 mb-1 ladda-button" data-style="expand-up"><span class="ladda-label">Expand UP</span></button>
-                                </td>
-                                <td>Expand Animation Buttons</td>
-                            </tr> -->
-                        </tbody>
-                    </table>
-                </div>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 </div>
+</div>
 <!-- UI components end -->
-  <?php endforeach;?>
-    <!--/ Project Overview -->
-    </div>
-    
+<?php endforeach;?>
+<!--/ Project Overview -->
+</div>
+
 
 
 <?php $this->endBody() ?>

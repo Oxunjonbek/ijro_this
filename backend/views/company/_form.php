@@ -13,6 +13,12 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'company_name')->textarea(['rows' => 6]) ?>
+    <?=  $form->field($model, 'parent')->dropDownList([
+        'boshqarma'=>'boshqarma',
+        'bo`lim'=>'bolum',
+        'tizim'=>'tizim',
+        // 'kechiktirilmoqda'=>'kechiktirilmoqda',
+    ],['prompt'=>'Tanlash']); ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

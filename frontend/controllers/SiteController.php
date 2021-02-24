@@ -39,7 +39,7 @@ class SiteController extends Controller
                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['logout', 'index', 'moliya', 'parent','tadbir','company'],
+                        'actions' => ['logout', 'index', 'moliya', 'parent','tadbir','company','generalniy','bolum','tizim'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -296,6 +296,22 @@ class SiteController extends Controller
     }
     public function actionCompany()
     {
-        return $this->render('company');
+        $companys =  Company::find()->all();
+        return $this->render('company',['companys'=>$companys]);
+    }
+    public function actionGeneralniy()
+    {
+        $company =  Company::find()->where(['parent'=>'boshqarma'])->all();
+        return $this->render('generalniy',['company'=>$company]);
+    }
+    public function actionBolum()
+    {
+        $company =  Company::find()->where(['parent'=>'bolum'])->all();
+        return $this->render('bolum',['company'=>$company]);
+    }
+    public function actionTizim()
+    {
+        $company =  Company::find()->where(['parent'=>'tizim'])->all();
+        return $this->render('bolum',['company'=>$company]);
     }
 }

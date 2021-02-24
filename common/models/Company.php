@@ -28,8 +28,8 @@ class Company extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['company_name'], 'required'],
-            [['company_name'], 'string'],
+            [['company_name','parent'], 'required'],
+            [['company_name','parent'], 'string'],
         ];
     }
 
@@ -40,7 +40,8 @@ class Company extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'company_name' => 'Company Name',
+            'company_name' => 'Tashkilot nomi',
+            'parent' => 'Tashkilot tipi',
         ];
     }
 

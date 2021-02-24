@@ -19,24 +19,24 @@ use yii\helpers\Html;
                 'data' => ['menu' => 'menu-navigation']
             ],
             'items' => [
-                ['label' => 'Dashboard', 'url' => url(['/site/index']), 'icon' => 'icon-home'],
-                ['label' => 'Foydalanuvchilar', 'url' => url(['/user/index']), 'icon' => 'icon-user'],
-                [
-                    'label' => 'Maktab, o\'qituvchilar',
-                    'icon' => 'icon-graduation',
-                    'items' => [
-                        ['label' => 'Maktablar', 'url' => url(['/school'])],
-                        ['label' => 'O\'qituvchilar', 'url' => url(['/teacher'])],
-                        ['label' => 'Sinflar', 'url' => url(['/grade'])],
-                        ['label' => 'O\'quvchilar', 'url' => url(['/pupil'])],
-                        ['label' => 'Ota onalar', 'url' => url(['/parent'])],
-                        ['label' => 'Smenalar vaqtlari', 'url' => url(['/shift'])],
-                    ],
-                ],
-                ['label' => 'E\'lonlar', 'url' => url(['/blog']), 'icon' => 'icon-speech'],
-                ['label' => 'Forum', 'url' => (['/forum']), 'icon' => 'icon-bubbles'],
-                ['label' => 'Sinf kamera', 'url' => '#', 'icon' => 'icon-camera'],
-                ['label' => 'Sozlanmalar', 'url' => '#', 'icon' => 'icon-equalizer'],
+                ['label' => 'Dashboard', 'url' => url(['/tadbir/index']), 'icon' => 'icon-home'],
+                ['label' => 'Tashkilotlar', 'url' => url(['/company/index']), 'icon' => 'icon-user'],
+                // [
+                //     'label' => 'Maktab, o\'qituvchilar',
+                //     'icon' => 'icon-graduation',
+                //     'items' => [
+                //         ['label' => 'Maktablar', 'url' => url(['/school'])],
+                //         ['label' => 'O\'qituvchilar', 'url' => url(['/teacher'])],
+                //         ['label' => 'Sinflar', 'url' => url(['/grade'])],
+                //         ['label' => 'O\'quvchilar', 'url' => url(['/pupil'])],
+                //         ['label' => 'Ota onalar', 'url' => url(['/parent'])],
+                //         ['label' => 'Smenalar vaqtlari', 'url' => url(['/shift'])],
+                //     ],
+                // ],
+                // ['label' => 'E\'lonlar', 'url' => url(['/blog']), 'icon' => 'icon-speech'],
+                // ['label' => 'Forum', 'url' => (['/forum']), 'icon' => 'icon-bubbles'],
+                // ['label' => 'Sinf kamera', 'url' => '#', 'icon' => 'icon-camera'],
+                // ['label' => 'Sozlanmalar', 'url' => '#', 'icon' => 'icon-equalizer'],
             ],
         ]);
         ?>

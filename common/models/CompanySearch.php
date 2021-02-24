@@ -18,7 +18,7 @@ class CompanySearch extends Company
     {
         return [
             [['id'], 'integer'],
-            [['company_name'], 'safe'],
+            [['company_name','parent'], 'safe'],
         ];
     }
 
@@ -61,7 +61,8 @@ class CompanySearch extends Company
             'id' => $this->id,
         ]);
 
-        $query->andFilterWhere(['like', 'company_name', $this->company_name]);
+        $query->andFilterWhere(['like', 'company_name', $this->company_name])
+        ->andFilterWhere(['like', 'parent', $this->parent]);
 
         return $dataProvider;
     }

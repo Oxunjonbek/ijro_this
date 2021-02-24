@@ -25,7 +25,7 @@ use yii\bootstrap4\Breadcrumbs;
                 <li class="nav-item"><a class="navbar-brand" href="<?= \yii\helpers\Url::home() ?>"><img
                                 class="brand-logo" alt="robust admin logo"
                                 src="<?= bu('themes/robust/app-assets/images/logo/logo-light-sm.png') ?>">
-                        <h3 class="brand-text">MAKTAB</h3></a></li>
+                        <h3 class="brand-text">Tadbir admin</h3></a></li>
                 <li class="nav-item d-md-none"><a class="nav-link open-navbar-container" data-toggle="collapse"
                                                   data-target="#navbar-mobile"><i class="fa fa-ellipsis-v"></i></a></li>
             </ul>
