@@ -17,7 +17,7 @@ use yii\bootstrap4\Html;
                 <li class="nav-item"><a class="navbar-brand" href="<?= \yii\helpers\Url::home() ?>"><img
                                 class="brand-logo" alt="robust admin logo"
                                 src="<?= bu('gerb.png') ?>">
-                        <h3 class="brand-text">"O`zstandart" agentligi monitoring tizimi</h3></a></li>
+                        <h3 class="brand-text">"Ўзстандарт" агентлиги мониторинг тизими</h3></a></li>
                 
             </ul>
         </div>

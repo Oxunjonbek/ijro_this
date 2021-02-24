@@ -40,16 +40,18 @@ use mihaildev\ckeditor\CKEditor;
     <?=  $form->field($model, 'tadbir_description')->textarea(['rows' => '6'])  ?>
 
     <?=  $form->field($model, 'tadbir_status')->dropDownList([
-        'bajarildi'=>'bajarildi',
-        'bajarilmadi'=>'bajarilmadi',
-        'ijroda'=>'ijroda',
+        'bajarildi'=>'бажарилди',
+        'bajarilmadi'=>'Муддати ўтиб ижро қилингин',
+        'bajarilmadi'=>'Муддати ўтиб ижро қилингин',
+        'ijroda'=>'иш жараёнида',
+        'muddat'=>'муддати ўтган',
         // 'kechiktirilmoqda'=>'kechiktirilmoqda',
-    ],['prompt'=>'Tanlash']); ?>
+    ],['prompt'=>'Танлаш']); ?>
 
     
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Сақлаш', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

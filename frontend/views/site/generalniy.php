@@ -60,27 +60,27 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                     <table class="table table-hover mb-10">
                         <thead>
                             <tr>
-                                <th class="width-300">Tashkilotlar</th>
+                                <th class="width-400 text-center">Tashkilotlar</th>
                                 <!-- <th>Ma`sul</th>
                                 <th>Statusi</th> -->
-                                <th>Foizda</th>
-                                <th>Soni</th>
+                                <th class="width-350 text-center">Foizda</th>
+                                <th class="width-150 text-center">Soni</th>
                             </tr>
                         </thead>
                         <tbody>
                           <?php foreach ($company as $key => $value) :?>
 
                             <tr>
-                                <td class="text-truncate">
+                                <td class="width-350 text-center">
                       <?php $id = $value->id; ?>
                                   <?=$value->company_name?></td>
 
-                                <td class="valign-middle">
+                                <td class="valign-middle text-center">
                                     <a href="<?=Url::to(['site/company','id' =>$id]) ?>" title=""><div class="progress m-0" style="height: 50px;">
                                         <div class="progress-bar bg-success" role="progressbar" style="width: 88%" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div></a>
                                 </td>
-                                <td class="text-truncate"> 
+                                <td class="width-350 text-center"> 
 <?php $count = count(common\models\Tadbir::find()->where(['company_id'=>$value->id])->all());
 echo $count; ?>
                                   </td>

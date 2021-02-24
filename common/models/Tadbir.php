@@ -50,13 +50,13 @@ class Tadbir extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'tadbir_name' => 'Tadbir Name',
-            'tadbir_content' => 'Tadbir Content',
-            'tadbir_result' => 'Tadbir Result',
-            'tadbir_date' => 'Tadbir Date',
-            'tadbir_description' => 'Tadbir Description',
-            'tadbir_status' => 'Tadbir Status',
-            'company_id' => 'Company ID',
+            'tadbir_name' => 'Тадбир номи',
+            'tadbir_content' => 'Амалга ошириш механизми',
+            'tadbir_result' => 'Эришиладиган натижа ва кўрсаткичлар',
+            'tadbir_date' => 'Муддат',
+            'tadbir_description' => 'Амалга оширилган ишлар',
+            'tadbir_status' => 'Ижро ҳолати',
+            'company_id' => 'Масъул',
         ];
     }
 

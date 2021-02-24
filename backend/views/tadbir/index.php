@@ -10,7 +10,7 @@ use yii\helpers\ArrayHelper;
 /* @var $searchModel common\models\TadbirSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Tadbirs';
+$this->title = 'Тадбирлар';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tadbir-index">
@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Tadbir', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Тадбир қушиш', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

@@ -19,8 +19,8 @@ use yii\helpers\Html;
                 'data' => ['menu' => 'menu-navigation']
             ],
             'items' => [
-                ['label' => 'Dashboard', 'url' => url(['/tadbir/index']), 'icon' => 'icon-home'],
-                ['label' => 'Tashkilotlar', 'url' => url(['/company/index']), 'icon' => 'icon-user'],
+                ['label' => 'Тадбирлар', 'url' => url(['/tadbir/index']), 'icon' => 'icon-home'],
+                ['label' => 'Масъул', 'url' => url(['/company/index']), 'icon' => 'icon-user'],
                 // [
                 //     'label' => 'Maktab, o\'qituvchilar',
                 //     'icon' => 'icon-graduation',

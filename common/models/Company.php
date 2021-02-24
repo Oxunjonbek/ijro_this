@@ -40,8 +40,8 @@ class Company extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'company_name' => 'Tashkilot nomi',
-            'parent' => 'Tashkilot tipi',
+            'company_name' => 'Масъул',
+            'parent' => 'Ташкилот тури',
         ];
     }
 

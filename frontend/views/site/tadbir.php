@@ -43,7 +43,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
     <div class="col-xl-12 col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">IJRO NAZORATI</h4>
+                <h4 class="card-title">ИЖРО НАЗОРАТИ</h4>
                 <a class="heading-elements-toggle"><i class="ft-more-horizontal font-medium-3"></i></a>
                 <div class="heading-elements">
                     <ul class="list-inline mb-0">
@@ -60,18 +60,18 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                     <table class="table table-hover mb-10">
                         <thead>
                             <tr>
-                                <th class="width-350 ">Tashkilotlar</th>
+                                <th class="width-300">Бошқармалар,Бўлимлар,Тизим ташкилотлари</th>
                                 
                                 <!-- <th>Statusi</th> -->
-                                <th class="width-350 text-center">Foizda</th>
-                                <th class="width-350 text-center">Tadbir soni</th>
+                                <th class="width-350 text-center">Фоизда</th>
+                                <th class="width-350 text-center">Тадбир сони</th>
                             </tr>
                         </thead>
                         <tbody>
                           <?php foreach ($company as $key => $value) :?>
 
                             <tr>
-                                <td class="text-truncate">
+                                <td class="width-350">
 
                                   <?=$value->company_name?></td>
                                   <?php $count = count(common\models\Tadbir::find()->where(['company_id'=>$value->id])->all());
@@ -103,7 +103,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title"><?=$com->company_name?></h4>
+<h4 class="card-title text-center">Ахборот коммуникация технологияларини жорий қилиш ва ривожлантириш <br>бошқармасининг 2021 йил март-май ойлари учун ЙЎЛ ХАРИТАСИ</h4>
                     <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
                     <div class="heading-elements">
                         <ul class="list-inline mb-0">
@@ -148,11 +148,13 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
 
                                  <td class="width-100">
                                   <?php if($tadbir->tadbir_status==="bajarildi"): ?>
-                                    <button type="button" class="btn btn-success mr-1 mb-1"><?=$tadbir->tadbir_status ?></button>
+                                    <button value="бажарилди" type="button" class="btn btn-success mr-1 mb-1">бажарилди</button>
                                     <?php elseif($tadbir->tadbir_status==="bajarilmadi"): ?>
-                                    <button type="button" class="btn btn-danger mr-1 mb-1"><?=$tadbir->tadbir_status ?></button>
+                                    <button value="бажарилмади" type="button" class="btn btn-danger mr-1 mb-1">Муддати ўтиб ижро қилинган</button>
+                                    <?php elseif($tadbir->tadbir_status==="ijroda"): ?>
+                                    <button value="иш жараёнида" type="button" class="btn btn-primary mr-1 mb-1">иш жараёнида</button>
                                   <?php elseif($tadbir->tadbir_status==="ijroda"): ?>
-                                  <button type="button" class="btn btn-warning mr-1 mb-1"><?=$tadbir->tadbir_status ?></button>
+                                  <button value="ижрода" type="button" class="btn btn-warning mr-1 mb-1">ижрода</button>
                                   <?php endif; ?>
                                 </td>
                                 

@@ -60,19 +60,19 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                     <table class="table table-hover mb-10">
                         <thead>
                             <tr>
-                                <th class="width-300">Tashkilotlar</th>
+                                <th class="width-350 text-center">Tashkilotlar</th>
                                 <!-- <th>Ma`sul</th>
                                 <th>Statusi</th> -->
-                                <th>Foizda</th>
-                                <th>Soni</th>
+                                <th class="width-350 text-center">Foizda</th>
+                                <th class="width-350 text-center">Soni</th>
                             </tr>
                         </thead>
                         <tbody>
                           <?php foreach ($company as $key => $value) :?>
 
                             <tr>
-                                <td class="text-truncate">
                       <?php $id = $value->id; ?>
+                                <td class="width-350 text-center">
                                   <?=$value->company_name?></td>
 
                                 <td class="valign-middle">
