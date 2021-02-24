@@ -103,7 +103,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-<h4 class="card-title text-center">Ахборот коммуникация технологияларини жорий қилиш ва ривожлантириш <br>бошқармасининг 2021 йил март-май ойлари учун ЙЎЛ ХАРИТАСИ</h4>
+<h4 class="card-title text-center"><?=$com->company_name ?>ни жорий қилиш ва ривожлантириш <br>бошқармасининг 2021 йил март-май ойлари учун ЙЎЛ ХАРИТАСИ</h4>
                     <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
                     <div class="heading-elements">
                         <ul class="list-inline mb-0">
