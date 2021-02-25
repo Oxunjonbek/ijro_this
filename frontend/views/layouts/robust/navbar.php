@@ -231,9 +231,11 @@ use yii\bootstrap4\Html;
                                                                                 href="chat-application.html"><i
                                         class="ft-message-square"></i> Chats</a>
                             <div class="dropdown-divider"></div>
-                            <?= Html::a('<i class="ft-power"></i> Chiqish', ['/site/logout'],['class' => 'dropdown-item', 'data' => ['method' => 'post']]) ?>
+                            <?= Html::a('<i class="ft-power"></i> Kirish', ['/site/login'],['class' => 'dropdown-item', 'data' => ['method' => 'post']]) ?>
                         </div>
                     </li> -->
+                    <li><?= Html::a('<i class="ft-power"></i> Kirish', ['/admin'],['class' => 'dropdown-item', 'data' => ['method' => 'post']]) ?>                     
+                    </li>
                 </ul>
             </div>
         </div>
