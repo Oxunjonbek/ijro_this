@@ -85,7 +85,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                                   }
 
 // echo $calculate;
-                                    $result = ($calculate/$count)*100;
+                                    $result = round(($calculate/$count)*100 , 2);
                                     // echo $result;?>
                                 <td class="valign-middle text-center">
                                     <a href="<?=Url::to(['site/company','id' =>$id]) ?>" title=""><div class="progress m-0" style="height: 50px;">
