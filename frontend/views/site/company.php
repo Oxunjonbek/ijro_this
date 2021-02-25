@@ -104,7 +104,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
   <td class="width-300 height-300 ">
                                <?=$tadbir->masullar ?>
   </td>
-  <td class="width-50"><?=$tadbir->tadbir_date ?></td>
+  <td class="width-50"><?=Yii::$app->formatter->format($tadbir->tadbir_date, 'date');  ?></td>
                                 <td class="width-100"><?=$tadbir->tadbir_description ?></td>
                                 
                                 <td class="width-100">
