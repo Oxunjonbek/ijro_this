@@ -76,15 +76,18 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                                   <?php 
    $count = count(common\models\Tadbir::find()->where(['company_id'=>$value->id])->all());
                                   $calculate = count(common\models\Tadbir::find()->where(['company_id'=>$value->id,'tadbir_status'=>'bajarildi'])->all());
-                                  if ($count===0) {
-                                    $count = 1;
-                                  }
                                   if ($calculate===0) {
-                                    $calculate = 1;
-                                  }
+                          $calculate = 1;
+                        }
+                        if ($count===0) {
+                          $count = 1;
+                          $result = '0';
+                        }else{
+                          $result = round(($calculate/$count)*100 , 2);
+                        }
 
 // echo $calculate;
-                                    $result = round(($calculate/$count)*100 , 2);
+                                    // $result = round(($calculate/$count)*100 , 2);
                                     // echo $result;?>
 
                                 <td class="valign-middle text-center">
