@@ -42,8 +42,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
 
     <div class="col-xl-12 col-lg-12">
         <div class="card">
-            <div class="card-header">
-                <h4 class="card-title">IJRO NAZORATI</h4>
+            <div class="card-header">ИЖРО НАЗОРАТИ</h4>
                 <a class="heading-elements-toggle"><i class="ft-more-horizontal font-medium-3"></i></a>
                 <div class="heading-elements">
                     <ul class="list-inline mb-0">
@@ -60,27 +59,27 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                     <table class="table table-hover mb-10">
                         <thead>
                             <tr>
-                                <th class="width-300">Tashkilotlar</th>
+                                 <th class="width-350 text-center">Бўлимлар</th>
                                 <!-- <th>Ma`sul</th>
                                 <th>Statusi</th> -->
-                                <th>Foizda</th>
-                                <th>Soni</th>
+                                <th class="width-350 text-center">Фоизда</th>
+                                <th class="width-150 text-center">Тадбир сони</th>
                             </tr>
                         </thead>
                         <tbody>
                           <?php foreach ($company as $key => $value) :?>
 
                             <tr>
-                                <td class="text-truncate">
+                                <td class="width-350 text-center">
                       <?php $id = $value->id; ?>
                                   <?=$value->company_name?></td>
 
-                                <td class="valign-middle">
+                                <td class="valign-middle text-center">
                                     <a href="<?=Url::to(['site/company','id' =>$id]) ?>" title=""><div class="progress m-0" style="height: 50px;">
                                         <div class="progress-bar bg-success" role="progressbar" style="width: 88%" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div></a>
                                 </td>
-                                <td class="text-truncate"> 
+                                <td class="width-350 text-center"> 
 <?php $count = count(common\models\Tadbir::find()->where(['company_id'=>$value->id])->all());
 echo $count; ?>
                                   </td>

@@ -43,7 +43,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
     <div class="col-xl-12 col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">IJRO NAZORATI</h4>
+                <h4 class="card-title">ИЖРО НАЗОРАТИ</h4>
                 <a class="heading-elements-toggle"><i class="ft-more-horizontal font-medium-3"></i></a>
                 <div class="heading-elements">
                     <ul class="list-inline mb-0">
@@ -60,11 +60,11 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                     <table class="table table-hover mb-10">
                         <thead>
                             <tr>
-                                <th class="width-400 text-center">Tashkilotlar</th>
+                                <th class="width-400 text-center">Бошқармалар</th>
                                 <!-- <th>Ma`sul</th>
                                 <th>Statusi</th> -->
-                                <th class="width-350 text-center">Foizda</th>
-                                <th class="width-150 text-center">Soni</th>
+                                <th class="width-350 text-center">Фоизда</th>
+                                <th class="width-150 text-center">Тадбир сони</th>
                             </tr>
                         </thead>
                         <tbody>

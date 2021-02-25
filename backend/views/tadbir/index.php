@@ -62,12 +62,17 @@ $this->params['breadcrumbs'][] = $this->title;
         'format' => 'html',
         'filterInputOptions'=>['class' => 'form-control  input-sm'],
     ],
-            // 'tadbir_status',
+            [
+        'attribute' => 'masullar',
+        'format' => 'html',
+        'filterInputOptions'=>['class' => 'form-control  input-sm'],
+    ],
             [
         'attribute' => 'tadbir_status',
         'format' => 'html',
         'filterInputOptions'=>['class' => 'form-control  input-sm'],
     ],
+    
             // 'tadbir_date',
             [
         'attribute' => 'tadbir_date',

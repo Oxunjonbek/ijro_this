@@ -28,6 +28,7 @@ use mihaildev\ckeditor\CKEditor;
     <?=  $form->field($model, 'tadbir_content')->textarea(['rows' => '6'])  ?>
 
     <?=  $form->field($model, 'tadbir_result')->textarea(['rows' => '6'])  ?>
+    <?=  $form->field($model, 'masullar')->textarea(['rows' => '6'])  ?>
 
     <?= $form->field($model, 'tadbir_date',['options'=>['class'=>'col-md-4']])->widget(\kartik\date\DatePicker::classname(),[
             'options' => ['placeholder' => 'Tadbir  kunni kiriting'],

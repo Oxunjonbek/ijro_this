@@ -81,6 +81,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                                 <th>Тадбир номи</th>
                                 <th>Амалга ошириш механизми</th>
                                 <th>Эришиладиган натижа ва кўрсаткичлар</th>
+                                <th>Масуъллар</th>
                                 <th>Муддати</th>
                                 <th>Амалга оширилган ишлар</th>
                                 <th>Ижро ҳолати</th>
@@ -100,6 +101,9 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                               <td class="width-300 height-300 ">
                                <?=$tadbir->tadbir_result ?>
   </td>
+  <td class="width-300 height-300 ">
+                               <?=$tadbir->masullar ?>
+  </td>
   <td class="width-50"><?=$tadbir->tadbir_date ?></td>
                                 <td class="width-100"><?=$tadbir->tadbir_description ?></td>
                                 
@@ -109,7 +113,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                                     <?php elseif($tadbir->tadbir_status==="bajarilmadi"): ?>
                                     <button value="бажарилмади" type="button" class="btn btn-danger mr-1 mb-1">Муддати ўтиб ижро қилинган</button>
                                     <?php elseif($tadbir->tadbir_status==="ijroda"): ?>
-                                    <button value="иш жараёнида" type="button" class="btn btn-primary mr-1 mb-1">иш жараёнида</button>
+                                    <button value="иш жараёнида" type="button" class="btn btn-secondary mr-1 mb-1">иш жараёнида</button>
                                   <?php elseif($tadbir->tadbir_status==="ijroda"): ?>
                                   <button value="ижрода" type="button" class="btn btn-warning mr-1 mb-1">ижрода</button>
                                   <?php endif; ?>

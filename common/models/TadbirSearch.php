@@ -18,7 +18,7 @@ class TadbirSearch extends Tadbir
     {
         return [
             [['id', 'company_id'], 'integer'],
-            [['tadbir_name', 'tadbir_content', 'tadbir_result', 'tadbir_date', 'tadbir_description', 'tadbir_status'], 'safe'],
+            [['tadbir_name', 'tadbir_content', 'tadbir_result', 'tadbir_date', 'tadbir_description', 'tadbir_status','masullar'], 'safe'],
         ];
     }
 
@@ -67,7 +67,8 @@ class TadbirSearch extends Tadbir
             ->andFilterWhere(['like', 'tadbir_content', $this->tadbir_content])
             ->andFilterWhere(['like', 'tadbir_result', $this->tadbir_result])
             ->andFilterWhere(['like', 'tadbir_description', $this->tadbir_description])
-            ->andFilterWhere(['like', 'tadbir_status', $this->tadbir_status]);
+            ->andFilterWhere(['like', 'tadbir_status', $this->tadbir_status])
+            ->andFilterWhere(['like', 'masullar', $this->tadbir_status]);
 
         return $dataProvider;
     }

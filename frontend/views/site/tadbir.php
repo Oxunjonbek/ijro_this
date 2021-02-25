@@ -124,6 +124,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                                 <th>Тадбир номи</th>
                                 <th>Амалга ошириш механизми</th>
                                 <th>Эришиладиган натижа ва кўрсаткичлар</th>
+                                <th>Масуъллар</th>
                                 <th>Муддати</th>
                                 <th>Изох</th>
                                 <th>Ижро ҳолати</th>
@@ -142,6 +143,9 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                                  </td>
                                  <td class="width-300 height-300 ">
                                      <?=$tadbir->tadbir_description ?>
+                                 </td>
+                                  <td class="width-300 height-300 ">
+                                     <?=$tadbir->masullar ?>
                                  </td>
                                  <td class="width-50"><?=$tadbir->tadbir_date ?></td>
                                  <td class="width-100"><?=$tadbir->tadbir_result ?></td>

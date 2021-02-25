@@ -34,23 +34,23 @@ class SiteController extends Controller
 //                'only' => ['logout', 'signup'],
                 'rules' => [
                     [
-                        'actions' => ['login','tadbir'],
+                        'actions' => ['login', 'index', 'moliya', 'parent','tadbir','company','generalniy','bolum','tizim'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['logout', 'index', 'moliya', 'parent','tadbir','company','generalniy','bolum','tizim'],
+                        'actions' => ['logout', 'index', 'moliya', 'parent'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
                 ],
             ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
+            // 'verbs' => [
+            //     'class' => VerbFilter::className(),
+            //     'actions' => [
+            //         'logout' => ['post'],
+            //     ],
+            // ],
         ];
     }
 
@@ -78,13 +78,13 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        if (!user()->isGuest) {
-            switch (user()->identity->role->name) {
-                case 'tasischi':
-                    $this->redirect(['site/moliya']);
-                    break;
-            }
-        }
+        // if (!user()->isGuest) {
+        //     switch (user()->identity->role->name) {
+        //         case 'tasischi':
+        //             $this->redirect(['site/moliya']);
+        //             break;
+        //     }
+        // }
 
         $tadbir = Tadbir::find()->all();
         $company =  Company::find()->all();
@@ -314,6 +314,6 @@ class SiteController extends Controller
     public function actionTizim()
     {
         $company =  Company::find()->where(['parent'=>'tizim'])->all();
-        return $this->render('bolum',['company'=>$company]);
+        return $this->render('tizim',['company'=>$company]);
     }
 }

@@ -53,6 +53,7 @@ class Tadbir extends \yii\db\ActiveRecord
             'tadbir_name' => 'Тадбир номи',
             'tadbir_content' => 'Амалга ошириш механизми',
             'tadbir_result' => 'Эришиладиган натижа ва кўрсаткичлар',
+            'masullar' => 'Масъуллар',
             'tadbir_date' => 'Муддат',
             'tadbir_description' => 'Амалга оширилган ишлар',
             'tadbir_status' => 'Ижро ҳолати',
