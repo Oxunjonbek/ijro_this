@@ -82,9 +82,9 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
 // echo $calculate;
 
                                     // echo $result;
-                    if ($calculate===0) {
-                          $calculate = 1;
-                        }
+                    // if ($calculate===0) {
+                    //       $calculate = 1;
+                    //     }
                         if ($count===0) {
                           $count = 1;
                           $result = '0';
