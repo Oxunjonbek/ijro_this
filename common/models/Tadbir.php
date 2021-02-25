@@ -57,7 +57,7 @@ class Tadbir extends \yii\db\ActiveRecord
             'tadbir_date' => 'Муддат',
             'tadbir_description' => 'Амалга оширилган ишлар',
             'tadbir_status' => 'Ижро ҳолати',
-            'company_id' => 'Масъул',
+            'company_id' => 'Бошқарма,Бўлим,Тизим Ташкилотлари',
         ];
     }
 
