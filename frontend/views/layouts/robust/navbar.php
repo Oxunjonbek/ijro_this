@@ -219,8 +219,7 @@ use yii\bootstrap4\Html;
                     <li class="dropdown dropdown-user nav-item">
                         <!-- <a class="dropdown-toggle nav-link dropdown-user-link"
                                                                    href="#" data-toggle="dropdown"><span
-                                    class="avatar avatar-online">
-                                    <img
+                                    class="avatar avatar-online"><img
                                         src="<?= bu('themes/robust/./app-assets/images/portrait/small/avatar-s-1.png') ?>"
                                         alt="avatar"><i></i></span><span class="user-name"><?= user()->getIsGuest() ? 'Mehmon' : ucfirst(user()->identity->role->name) ?></span></a> -->
                         <!-- <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item"
@@ -233,8 +232,8 @@ use yii\bootstrap4\Html;
                                                                                 href="chat-application.html"><i
                                         class="ft-message-square"></i> Chats</a>
                             <div class="dropdown-divider"></div> -->
-                            <?= Html::a('<i class="ft-power"></i> Kirish', ['/site/login'],['class' => 'dropdown-item', 'data' => ['method' => 'post']]) ?>
-                        <!-- </div> -->                  
+                            <?= Html::a('<i class="ft-power"></i> Kirish', ['/admin'],['class' => 'dropdown-item', 'data' => ['method' => 'post']]) ?>
+                        <!-- </div> -->
                     </li>
                 </ul>
             </div>
