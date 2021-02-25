@@ -55,7 +55,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                 <div class="card-body">
                     <!-- <p class="m-0">Total ongoing projects 6<span class="float-right"><a href="project-summary.html" target="_blank">Project Summary <i class="ft-arrow-right"></i></a></span></p> -->
                 </div>
-                <div class="table-responsive">
+                <div class="">
                     <table class="table table-hover mb-10">
                         <thead>
                             <tr>
