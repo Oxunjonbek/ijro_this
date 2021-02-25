@@ -74,10 +74,22 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                                 <td class="width-400 text-center">
                       <?php $id = $value->id; ?>
                                   <?=$value->company_name?></td>
+<?php 
+   $count = count(common\models\Tadbir::find()->where(['company_id'=>$value->id])->all());
+                                  $calculate = count(common\models\Tadbir::find()->where(['company_id'=>$value->id,'tadbir_status'=>'bajarildi'])->all());
+                                  if ($count===0) {
+                                    $count = 1;
+                                  }
+                                  if ($calculate===0) {
+                                    $calculate = 1;
+                                  }
 
+// echo $calculate;
+                                    $result = ($calculate/$count)*100;
+                                    // echo $result;?>
                                 <td class="valign-middle text-center">
                                     <a href="<?=Url::to(['site/company','id' =>$id]) ?>" title=""><div class="progress m-0" style="height: 50px;">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 88%" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-success" role="progressbar" style="width:<?=$result ?>%" aria-valuenow="<?=$result ?>" aria-valuemin="0" aria-valuemax="100"><h3><?=$result ?>%</h3></div>
                                     </div></a>
                                 </td>
                                 <td class="width-350 text-center"> 
