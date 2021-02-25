@@ -55,15 +55,13 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                 <div class="card-body">
                     <!-- <p class="m-0">Total ongoing projects 6<span class="float-right"><a href="project-summary.html" target="_blank">Project Summary <i class="ft-arrow-right"></i></a></span></p> -->
                 </div>
-                <div class="">
+                <div class="table-responsive">
                     <table class="table table-hover mb-10">
                         <thead>
                             <tr>
                                  <th class="width-350 text-center">Бўлимлар</th>
-                                <!-- <th>Ma`sul</th>
-                                <th>Statusi</th> -->
                                 <th class="width-350 text-center">Фоизда</th>
-                                <th class="width-150 text-center">Тадбир сони</th>
+                                <th class="width-350 text-center">Тадбир сони</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -90,7 +88,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                                     // $result = round(($calculate/$count)*100 , 2);
                                     // echo $result;?>
 
-                                <td class="valign-middle text-center">
+                                <td class="width-350 text-center">
                                     <a href="<?=Url::to(['site/company','id' =>$id]) ?>" title=""><div class="progress m-0" style="height: 50px;">
                                         <div class="progress-bar bg-success" role="progressbar" style="width: <?=$result ?>%" aria-valuenow="<?=$result ?>" aria-valuemin="0" aria-valuemax="100"><h3><?=$result ?>%</div>
                                     </div></a>

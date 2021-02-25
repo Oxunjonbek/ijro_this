@@ -61,8 +61,6 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
             <thead>
               <tr>
                 <th class="width-350 text-center">Таркибий бўлинма</th>
-
-                <!-- <th>Statusi</th> -->
                 <th class="width-350 text-center">Фоизда</th>
                 <th class="width-350 text-center">Тадбир сони</th>
               </tr>
@@ -92,13 +90,13 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                           $result = round(($calculate/$count)*100 , 2);
                         }
                     ?>
-                    <td class="valign-middle">
+                    <td class="width-350 text-center">
                      <a href="<?=Url::to(['site/company','id' =>$id]) ?>" title=""><div class="progress m-0" style="height: 50px;">
                       <div class="progress-bar bg-success" role="progressbar" style="width: <?=$result ?>%" aria-valuenow="<?=$result ?>" aria-valuemin="0" aria-valuemax="100"><h3>
                         <?= $result ?>%</h3></div>
                       </div></a>
                     </td>
-                    <td class="text-center"> 
+                    <td class="width-350 text-center"> 
                       <a href="<?=Url::to(['site/company','id' =>$id]) ?>" title=""><?= $count; ?></a>
                     </td>
                   </tr>
