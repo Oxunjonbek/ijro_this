@@ -216,12 +216,14 @@ use yii\bootstrap4\Html;
                                                                 href="javascript:void(0)">Read all messages</a></li>
                         </ul>
                     </li> -->
-                    <!-- <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link"
+                    <li class="dropdown dropdown-user nav-item">
+                        <!-- <a class="dropdown-toggle nav-link dropdown-user-link"
                                                                    href="#" data-toggle="dropdown"><span
-                                    class="avatar avatar-online"><img
+                                    class="avatar avatar-online">
+                                    <img
                                         src="<?= bu('themes/robust/./app-assets/images/portrait/small/avatar-s-1.png') ?>"
-                                        alt="avatar"><i></i></span><span class="user-name"><?= user()->getIsGuest() ? 'Mehmon' : ucfirst(user()->identity->role->name) ?></span></a>
-                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item"
+                                        alt="avatar"><i></i></span><span class="user-name"><?= user()->getIsGuest() ? 'Mehmon' : ucfirst(user()->identity->role->name) ?></span></a> -->
+                        <!-- <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item"
                                                                           href="user-profile.html"><i
                                         class="ft-user"></i> Profilni o'zgartirish</a><a class="dropdown-item"
                                                                                 href="email-application.html"><i
@@ -230,11 +232,9 @@ use yii\bootstrap4\Html;
                                         class="ft-check-square"></i> Task</a><a class="dropdown-item"
                                                                                 href="chat-application.html"><i
                                         class="ft-message-square"></i> Chats</a>
-                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-divider"></div> -->
                             <?= Html::a('<i class="ft-power"></i> Kirish', ['/site/login'],['class' => 'dropdown-item', 'data' => ['method' => 'post']]) ?>
-                        </div>
-                    </li> -->
-                    <li><?= Html::a('<i class="ft-power"></i> Kirish', ['/admin'],['class' => 'dropdown-item', 'data' => ['method' => 'post']]) ?>                     
+                        <!-- </div> -->                  
                     </li>
                 </ul>
             </div>
