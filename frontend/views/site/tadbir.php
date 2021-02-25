@@ -60,7 +60,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
           <table class="table table-hover mb-10">
             <thead>
               <tr>
-                <th class="width-300 text-center">Таркибий бўлинма</th>
+                <th class="width-350 text-center">Таркибий бўлинма</th>
 
                 <!-- <th>Statusi</th> -->
                 <th class="width-350 text-center">Фоизда</th>
