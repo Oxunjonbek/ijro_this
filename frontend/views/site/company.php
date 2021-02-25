@@ -116,6 +116,8 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                                     <button value="иш жараёнида" type="button" class="btn btn-secondary mr-1 mb-1">иш жараёнида</button>
                                   <?php elseif($tadbir->tadbir_status==="ijroda"): ?>
                                   <button value="ижрода" type="button" class="btn btn-warning mr-1 mb-1">ижрода</button>
+                                  <?php elseif($tadbir->tadbir_status==="muddat"): ?>
+                                  <button value="muddat" type="button" class="btn btn-danger mr-1 mb-1">Муддати ўтган</button>
                                   <?php endif; ?>
                                 </td>
                                 

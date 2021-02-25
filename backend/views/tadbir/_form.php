@@ -43,7 +43,6 @@ use mihaildev\ckeditor\CKEditor;
     <?=  $form->field($model, 'tadbir_status')->dropDownList([
         'bajarildi'=>'бажарилди',
         'bajarilmadi'=>'Муддати ўтиб ижро қилингин',
-        'bajarilmadi'=>'Муддати ўтиб ижро қилингин',
         'ijroda'=>'иш жараёнида',
         'muddat'=>'муддати ўтган',
         // 'kechiktirilmoqda'=>'kechiktirilmoqda',
