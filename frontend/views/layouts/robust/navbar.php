@@ -216,7 +216,7 @@ use yii\bootstrap4\Html;
                                                                 href="javascript:void(0)">Read all messages</a></li>
                         </ul>
                     </li> -->
-                    <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link"
+                    <!-- <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link"
                                                                    href="#" data-toggle="dropdown"><span
                                     class="avatar avatar-online"><img
                                         src="<?= bu('themes/robust/./app-assets/images/portrait/small/avatar-s-1.png') ?>"
@@ -233,7 +233,7 @@ use yii\bootstrap4\Html;
                             <div class="dropdown-divider"></div>
                             <?= Html::a('<i class="ft-power"></i> Chiqish', ['/site/logout'],['class' => 'dropdown-item', 'data' => ['method' => 'post']]) ?>
                         </div>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
