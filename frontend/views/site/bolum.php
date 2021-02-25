@@ -42,7 +42,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
 
     <div class="col-xl-12 col-lg-12">
         <div class="card">
-            <div class="card-header">ИЖРО НАЗОРАТИ</h4>
+            <div class="card-header"><h4 class="card-title">ИЖРО НАЗОРАТИ</h4>
                 <a class="heading-elements-toggle"><i class="ft-more-horizontal font-medium-3"></i></a>
                 <div class="heading-elements">
                     <ul class="list-inline mb-0">
@@ -70,9 +70,9 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                           <?php foreach ($company as $key => $value) :?>
 
                             <tr>
-                                <td class="width-350 text-center">
+                                <td class="width-350 text-left">
                       <?php $id = $value->id; ?>
-                                  <?=$value->company_name?></td>
+                                  <a href="<?=Url::to(['site/company','id' =>$id]) ?>" title=""><?=$value->company_name?></a></td>
                                   <?php 
    $count = count(common\models\Tadbir::find()->where(['company_id'=>$value->id])->all());
                                   $calculate = count(common\models\Tadbir::find()->where(['company_id'=>$value->id,'tadbir_status'=>'bajarildi'])->all());
@@ -95,9 +95,9 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                                         <div class="progress-bar bg-success" role="progressbar" style="width: <?=$result ?>%" aria-valuenow="<?=$result ?>" aria-valuemin="0" aria-valuemax="100"><h3><?=$result ?>%</div>
                                     </div></a>
                                 </td>
-                                <td class="width-350 text-center"> 
+                                <td class="width-350 text-center"> <a href="<?=Url::to(['site/company','id' =>$id]) ?>" title="">
 <?php $count = count(common\models\Tadbir::find()->where(['company_id'=>$value->id])->all());
-echo $count; ?>
+echo $count; ?></a>
                                   </td>
                             </tr>
                           <?php endforeach;?>

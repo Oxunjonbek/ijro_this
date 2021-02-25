@@ -12,8 +12,8 @@ use common\widgets\robust\Nav;
         <?php
         $items = [['label' => 'БОШ САҲИФА', 'url' => url(['site/tadbir']), 'icon' => 'icon-home'],
                         ['label' => 'Бошқарма', 'url' => url(['site/generalniy']), 'icon' => 'icon-note'],
-                        ['label' => 'Бўлимлар', 'url' => url(['site/bolum']), 'icon' => 'icon-note'],
-                        ['label' => 'Тизим ташкилотлари', 'url' => url(['site/tizim']), 'icon' => 'icon-note']];
+                        ['label' => 'Бўлим', 'url' => url(['site/bolum']), 'icon' => 'icon-note'],
+                        ['label' => 'Тизим ташкилоти', 'url' => url(['site/tizim']), 'icon' => 'icon-note']];
 
         if (!user()->isGuest) {
             switch (user()->identity->role->name) {

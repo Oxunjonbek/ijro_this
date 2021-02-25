@@ -34,12 +34,12 @@ class SiteController extends Controller
 //                'only' => ['logout', 'signup'],
                 'rules' => [
                     [
-                        'actions' => ['login', 'index', 'moliya', 'parent','tadbir','company','generalniy','bolum','tizim'],
+                        'actions' => ['login', 'index', 'moliya', 'parent','tadbir','company','generalniy','bolum','tizim','contact'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['logout', 'index', 'moliya', 'parent'],
+                        'actions' => ['logout', 'moliya', 'parent'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -143,20 +143,22 @@ class SiteController extends Controller
      */
     public function actionContact()
     {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
-                Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
-            } else {
-                Yii::$app->session->setFlash('error', 'There was an error sending your message.');
-            }
+        // $model = new ContactForm();
+        // if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+        //     if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
+        //         Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
+        //     } else {
+        //         Yii::$app->session->setFlash('error', 'There was an error sending your message.');
+        //     }
 
-            return $this->refresh();
-        } else {
-            return $this->render('contact', [
-                'model' => $model,
-            ]);
-        }
+        //     return $this->refresh();
+        // } else {
+        //     return $this->render('contact', [
+        //         'model' => $model,
+        //     ]);
+        // }
+        $company =  Company::find()->where(['parent'=>'boshqarma'])->all();
+        return $this->render('generalniy',['company'=>$company]);
     }
 
     /**
