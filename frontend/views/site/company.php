@@ -111,7 +111,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                                    <?php if($tadbir->tadbir_status==="bajarildi"): ?>
                                     <button value="бажарилди" type="button" class="btn btn-success mr-1 mb-1">бажарилди</button>
                                     <?php elseif($tadbir->tadbir_status==="bajarilmadi"): ?>
-                                    <button value="бажарилмади" type="button" class="btn btn-danger mr-1 mb-1">Муддати ўтиб ижро қилинган</button>
+                                    <button value="бажарилмади" type="button" class="btn btn-warning mr-1 mb-1">Муддати ўтиб ижро қилинган</button>
                                     <?php elseif($tadbir->tadbir_status==="ijroda"): ?>
                                     <button value="иш жараёнида" type="button" class="btn btn-secondary mr-1 mb-1">иш жараёнида</button>
                                   <?php elseif($tadbir->tadbir_status==="ijroda"): ?>

@@ -20,7 +20,7 @@ use yii\helpers\Html;
             ],
             'items' => [
                 ['label' => 'Тадбирлар', 'url' => url(['/tadbir/index']), 'icon' => 'icon-home'],
-                ['label' => 'Масъул', 'url' => url(['/company/index']), 'icon' => 'icon-user'],
+                ['label' => 'Масуъл ташкилот', 'url' => url(['/company/index']), 'icon' => 'icon-user'],
                 // [
                 //     'label' => 'Maktab, o\'qituvchilar',
                 //     'icon' => 'icon-graduation',

@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'buttons' => [
             'delete' => function ($url, $model) {
                 return Html::a(
-                    '<span class="fa fa-trash" style="font-size:14px;"></span>', ['delete', 'id' => $model->id],
+                    '<span class="fa fa-trash" style="font-size:14px; padding:10px;"></span>', ['delete', 'id' => $model->id],
                     [
                         'data' => [
                             'method' => 'POST',
