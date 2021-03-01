@@ -36,9 +36,18 @@ use yii\bootstrap4\Html;
                         </div>
                     </li> -->
                 </ul>
-                <!-- <ul class="nav navbar-nav float-left">
-                    <li class="nav-item"><h3 class="brand-text">"O`zstandart" agentligi monitoring tizimi</h3></li>
-                </ul> -->
+                <ul class="nav navbar-nav float-left">
+                     <li class="nav-item d-none d-md-block"><a class="nav-link nav-menu-main menu-toggle hidden-xs"
+                                                              href="#"><i class="ft-menu"> </i></a></li>
+                    <!-- <li class="nav-item d-none d-md-block"><a class="nav-link nav-link-expand" href="#"><i
+                                    class="ficon ft-maximize"></i></a></li> -->
+                   <!--  <li class="nav-item nav-search"><a class="nav-link nav-link-search" href="#"><i
+                                    class="ficon ft-search"></i></a>
+                        <div class="search-input">
+                            <input class="input" type="text" placeholder="Поиск">
+                        </div>
+                    </li> -->
+                </ul>
                 <ul class="nav navbar-nav float-right">
                     
                     <!-- <li class="dropdown dropdown-language nav-item"><a class="dropdown-toggle nav-link"

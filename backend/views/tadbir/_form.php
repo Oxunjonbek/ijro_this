@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use common\models\Company;
 use mihaildev\ckeditor\CKEditor;
+use dosamigos\tinymce\TinyMce;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Tadbir */
@@ -23,12 +24,57 @@ use mihaildev\ckeditor\CKEditor;
                     'size' => 'xs',
                 ]); ?>
 
-    <?=  $form->field($model, 'tadbir_name')->textarea(['rows' => '6'])  ?>
+    
+    <?=  $form->field($model, 'tadbir_name')->label('Тадбир номи:')->widget(TinyMce::className(), [
+    'language' => 'en',
+    'clientOptions' => [
+        'plugins' => [
+            "advlist autolink lists link charmap print preview anchor",
+            "searchreplace visualblocks code fullscreen",
+            "insertdatetime media table contextmenu paste",
+            "textcolor",
+        ],
+        'toolbar' => "forecolor backcolor | undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+    ]
+]);  ?>
 
-    <?=  $form->field($model, 'tadbir_content')->textarea(['rows' => '6'])  ?>
+    <?=  $form->field($model, 'tadbir_content')->label('Амалга ошириш механизми:')->widget(TinyMce::className(), [
+    'language' => 'en',
+    'clientOptions' => [
+        'plugins' => [
+            "advlist autolink lists link charmap print preview anchor",
+            "searchreplace visualblocks code fullscreen",
+            "insertdatetime media table contextmenu paste",
+            "textcolor",
+        ],
+        'toolbar' => "forecolor backcolor | undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+    ]
+]);  ?>
 
-    <?=  $form->field($model, 'tadbir_result')->textarea(['rows' => '6'])  ?>
-    <?=  $form->field($model, 'masullar')->textarea(['rows' => '6'])  ?>
+    <?=  $form->field($model, 'tadbir_result')->label('Эришиладиган натижа ва кўрсаткичлар:')->widget(TinyMce::className(), [
+    'language' => 'en',
+    'clientOptions' => [
+        'plugins' => [
+            "advlist autolink lists link charmap print preview anchor",
+            "searchreplace visualblocks code fullscreen",
+            "insertdatetime media table contextmenu paste",
+            "textcolor",
+        ],
+        'toolbar' => "forecolor backcolor | undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+    ]
+]);  ?>
+    <?=  $form->field($model, 'masullar')->label('Масъуллар:')->widget(TinyMce::className(), [
+    'language' => 'en',
+    'clientOptions' => [
+        'plugins' => [
+            "advlist autolink lists link charmap print preview anchor",
+            "searchreplace visualblocks code fullscreen",
+            "insertdatetime media table contextmenu paste",
+            "textcolor",
+        ],
+        'toolbar' => "forecolor backcolor | undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+    ]
+]);  ?>
 
     <?= $form->field($model, 'tadbir_date',['options'=>['class'=>'col-md-4']])->widget(\kartik\date\DatePicker::classname(),[
             'options' => ['placeholder' => 'Tadbir  kunni kiriting'],
@@ -38,7 +84,18 @@ use mihaildev\ckeditor\CKEditor;
             ]
         ]); ?>
 
-    <?=  $form->field($model, 'tadbir_description')->textarea(['rows' => '6'])  ?>
+    <?=  $form->field($model, 'tadbir_description')->label('Амалга оширилган ишлар:')->widget(TinyMce::className(), [
+    'language' => 'en',
+    'clientOptions' => [
+        'plugins' => [
+            "advlist autolink lists link charmap print preview anchor",
+            "searchreplace visualblocks code fullscreen",
+            "insertdatetime media table contextmenu paste",
+            "textcolor",
+        ],
+        'toolbar' => "forecolor backcolor | undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+    ]
+]); ?>
 
     <?=  $form->field($model, 'tadbir_status')->dropDownList([
         'bajarildi'=>'бажарилди',
