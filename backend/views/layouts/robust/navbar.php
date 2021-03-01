@@ -384,7 +384,8 @@ use yii\bootstrap4\Breadcrumbs;
                                                                    href="#" data-toggle="dropdown"><span
                                     class="avatar avatar-online"><img
                                         src="<?= bu('themes/robust/./app-assets/images/portrait/small/avatar-s-1.png') ?>"
-                                        alt="avatar"><i></i></span><span class="user-name"><?= user()->getIsGuest() ? 'Mehmon' : ucfirst(user()->identity->role->name) ?></span></a>
+                                        alt="avatar"><i></i></span><span class="user-name">
+                                        </span></a>
                         <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item"
                                                                           href="user-profile.html"><i
                                         class="ft-user"></i> Profilni o'zgartirish</a><a class="dropdown-item"
