@@ -5,16 +5,113 @@ use yii\widgets\ActiveForm;
 use common\models\Company;
 use mihaildev\ckeditor\CKEditor;
 use dosamigos\tinymce\TinyMce;
+use  yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Tadbir */
 /* @var $form yii\widgets\ActiveForm */
+$user = Yii::$app->user->identity;
+// print_r(user()->identity->username);
+// echo '<pre>';
+// print_r($user);
+// exit();
+$items = [];
+if (!Yii::$app->user->isGuest) {
+            switch ($user->username) {
+                case 'admin':
+                    $company_id = '';
+                    break;
+                case 'audit':
+                    $company_id = 18;
+                    break;
+
+                case 'taxlil':
+                    $company_id = 8;
+                    break;
+                case 'metrologiya':
+                    $company_id = 12;
+                    break;
+                case 'reglament':
+                    $company_id = 10;
+                    break;
+                case 'axborot':
+                    $company_id = 13;
+                    break;
+                case 'standart':
+                    $company_id = 9;
+                    break;
+                case 'sertifikat':
+                    $company_id = 15;
+                    break;
+                case 'smk':
+                    $company_id = 16;
+                    break;
+                case 'xalqaro':
+                    $company_id = 14;
+                    break;
+                case 'integratsiya':
+                    $company_id = 11;
+                    break;
+                case 'moliya':
+                    $company_id = 17;
+                    break;
+                case 'bugalteriya':
+                    $company_id = '';
+                    break;
+                case 'yuridik':
+                    $company_id = 20;
+                    break;
+                case 'kadr':
+                    $company_id = 19;
+                    break;
+                case 'ijro':
+                    $company_id = 21;
+                    break;
+                case 'smi':
+                    $company_id = '';
+                    break;
+                case 'murojaat':
+                    $company_id = 22;
+                    break;
+                case 'xo\'jalik':
+                    $company_id = 23;
+                    break;
+                case 'smsiti':
+                    $company_id = 24;
+                    break;
+                case 'uznim':
+                    $company_id = 25;
+                    break;
+                case 'dep':
+                    $company_id = 26;
+                    break;
+                case 'akkred':
+                    $company_id = 27;
+                    break;
+                case 'shtirxkod':
+                    $company_id = 28;
+                    break;
+            }
+        }
+
+        if(!empty($company_id)){
+            $items = ArrayHelper::map(Company::find()->where(['id'=>$company_id])->all()
+                    , 'id', 'company_name');
+
+        // echo "<pre>";
+        // print_r($items);
+        // exit();
+        // $items = Company::find()->where(['id'=>$company_id])->all();
+        // echo "<pre>";
+        // print_r($items);
+        // exit();
+    }
 ?>
 
 <div class="tadbir-form">
 
     <?php $form = ActiveForm::begin(); ?>
-
+<?php if($user->username=="admin"):?>
     <?= $form->field($model, 'company_id')->widget(\kartik\select2\Select2::classname(),[
                     /*'value' => 1,*/
                     'class'=>'col-md-6',
@@ -23,8 +120,9 @@ use dosamigos\tinymce\TinyMce;
                     'theme' => \kartik\select2\Select2::THEME_KRAJEE,
                     'size' => 'xs',
                 ]); ?>
-
-    
+<?php else:?>
+    <?=  $form->field($model, 'company_id')->dropDownList($items); ?>
+            <?php endif; ?>
     <?=  $form->field($model, 'tadbir_name')->label('Тадбир номи:')->widget(TinyMce::className(), [
     'language' => 'en',
     'clientOptions' => [

@@ -4,7 +4,6 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Tadbir */
-
 $this->title = 'Тадбир қушиш';
 $this->params['breadcrumbs'][] = ['label' => 'Tadbirs', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
