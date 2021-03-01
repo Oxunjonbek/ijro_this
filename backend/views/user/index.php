@@ -39,45 +39,45 @@ $columns = [
         'format' => 'text',
         'filterInputOptions' => ['class' => 'form-control input-sm'],
     ],
-    [
-        'attribute' => 'full_name',
-        'format' => 'text',
-        'filterInputOptions' => ['class' => 'form-control input-sm'],
-    ],
-    [
-        'attribute' => 'phone',
-        'format' => 'text',
-        'filterInputOptions' => ['class' => 'form-control input-sm'],
-    ],
-    [
-        'attribute' => 'teacher_id',
-        'format' => 'raw',
-        'filter' => ArrayHelper::map(Teacher::find()->all(), 'id', 'full_name'),
-        'filterType' => GridView::FILTER_SELECT2,
-        'filterWidgetOptions' => [
-            'size' => Select2::SIZE_SMALL,
-            'options' => ['prompt' => 'Выберите'],
-            'pluginOptions' => ['allowClear' => true],
-        ],
-        'contentOptions' => ['style' => 'width: 10em'],
-    ],
-    [
-        'attribute' => 'parent_id',
-        'format' => 'raw',
-        'filter' => ArrayHelper::map(Parents::find()->all(), 'id', 'full_name'),
-        'filterType' => GridView::FILTER_SELECT2,
-        'filterWidgetOptions' => [
-            'size' => Select2::SIZE_SMALL,
-            'options' => ['prompt' => 'Выберите'],
-            'pluginOptions' => ['allowClear' => true],
-        ],
-        'contentOptions' => ['style' => 'width: 10em'],
-    ],
-    [
-        'attribute' => 'email',
-        'format' => 'email',
-        'filterInputOptions' => ['class' => 'form-control  input-sm'],
-    ],
+    // [
+    //     'attribute' => 'full_name',
+    //     'format' => 'text',
+    //     'filterInputOptions' => ['class' => 'form-control input-sm'],
+    // ],
+    // [
+    //     'attribute' => 'phone',
+    //     'format' => 'text',
+    //     'filterInputOptions' => ['class' => 'form-control input-sm'],
+    // ],
+    // [
+    //     'attribute' => 'teacher_id',
+    //     'format' => 'raw',
+    //     'filter' => ArrayHelper::map(Teacher::find()->all(), 'id', 'full_name'),
+    //     'filterType' => GridView::FILTER_SELECT2,
+    //     'filterWidgetOptions' => [
+    //         'size' => Select2::SIZE_SMALL,
+    //         'options' => ['prompt' => 'Выберите'],
+    //         'pluginOptions' => ['allowClear' => true],
+    //     ],
+    //     'contentOptions' => ['style' => 'width: 10em'],
+    // ],
+    // [
+    //     'attribute' => 'parent_id',
+    //     'format' => 'raw',
+    //     'filter' => ArrayHelper::map(Parents::find()->all(), 'id', 'full_name'),
+    //     'filterType' => GridView::FILTER_SELECT2,
+    //     'filterWidgetOptions' => [
+    //         'size' => Select2::SIZE_SMALL,
+    //         'options' => ['prompt' => 'Выберите'],
+    //         'pluginOptions' => ['allowClear' => true],
+    //     ],
+    //     'contentOptions' => ['style' => 'width: 10em'],
+    // ],
+    // [
+    //     'attribute' => 'email',
+    //     'format' => 'email',
+    //     'filterInputOptions' => ['class' => 'form-control  input-sm'],
+    // ],
     [
         'attribute' => 'status',
         'value' => function ($model) {

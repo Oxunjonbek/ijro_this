@@ -18,8 +18,14 @@ class UserSearch extends User
     public function rules()
     {
         return [
-            [['id', 'role_id', 'teacher_id', 'parent_id', 'status', 'created_at', 'updated_at'], 'integer'],
-            [['username', 'full_name', 'phone', 'auth_key', 'password_hash', 'password_reset_token', 'email', 'verification_token'], 'safe'],
+            [['id', 'role_id',
+            // , 'teacher_id', 'parent_id'
+            'status', 'created_at', 'updated_at'], 'integer'],
+            [['username',
+            // , 'full_name', 'phone' 
+            'auth_key', 'password_hash', 'password_reset_token'
+            // , 'email'
+            , 'verification_token'], 'safe'],
         ];
     }
 
@@ -61,20 +67,20 @@ class UserSearch extends User
         $query->andFilterWhere([
             'id' => $this->id,
             'role_id' => $this->role_id,
-            'teacher_id' => $this->teacher_id,
-            'parent_id' => $this->parent_id,
+            // 'teacher_id' => $this->teacher_id,
+            // 'parent_id' => $this->parent_id,
             'status' => $this->status,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);
 
         $query->andFilterWhere(['like', 'username', $this->username])
-            ->andFilterWhere(['like', 'full_name', $this->auth_key])
-            ->andFilterWhere(['like', 'phone', $this->auth_key])
+            // ->andFilterWhere(['like', 'full_name', $this->auth_key])
+            // ->andFilterWhere(['like', 'phone', $this->auth_key])
             ->andFilterWhere(['like', 'auth_key', $this->auth_key])
             ->andFilterWhere(['like', 'password_hash', $this->password_hash])
             ->andFilterWhere(['like', 'password_reset_token', $this->password_reset_token])
-            ->andFilterWhere(['like', 'email', $this->email])
+            // ->andFilterWhere(['like', 'email', $this->email])
             ->andFilterWhere(['like', 'verification_token', $this->verification_token]);
 
         return $dataProvider;

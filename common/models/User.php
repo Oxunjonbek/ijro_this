@@ -40,13 +40,19 @@ class User extends UserModel
     public function rules()
     {
         return [
-            [['username', 'password_hash', 'email','full_name'], 'required'],
-            [['username', 'password_hash', 'email','full_name', 'phone'], 'string', 'max' => 255],
-            [['role_id', 'teacher_id', 'parent_id'],  'integer'],
+            [['username', 'password_hash'
+            // , 'email','full_name'
+        ], 'required'],
+            [['username', 'password_hash'
+            // , 'email','full_name', 'phone'
+        ], 'string', 'max' => 255],
+            [['role_id'
+            // , 'teacher_id', 'parent_id'
+        ],  'integer'],
             [['username'],  'unique'],
-            [['email'], 'email'],
+            // [['email'], 'email'],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
-            [['teacher_id', 'parent_id'], 'default', 'value' => NULL, 'skipOnEmpty' => false],
+            // [['teacher_id', 'parent_id'], 'default', 'value' => NULL, 'skipOnEmpty' => false],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED]],
         ];
     }
@@ -57,13 +63,13 @@ class User extends UserModel
             'id' => 'Id',
             'role_id' => 'Huquqi',
             'username' => 'Foydalanuvchi',
-            'teacher_id' => 'O\'qituvchi',
-            'parent_id' => 'Ota-ona',
+            // 'teacher_id' => 'O\'qituvchi',
+            // 'parent_id' => 'Ota-ona',
             'password_hash' => 'Parol',
             'new_password' => 'Parolni qaytaring',
-            'email' => 'Email',
-            'full_name' => 'FISH',
-            'phone' => 'Telefon raqam',
+            // 'email' => 'Email',
+            // 'full_name' => 'FISH',
+            // 'phone' => 'Telefon raqam',
             'created_at' => 'Qo\'shildi',
             'updated_at' => 'O\'zgardi',
         ];
@@ -77,10 +83,10 @@ class User extends UserModel
         }
     }
 
-    public static function findIdentityByAccessToken($token, $type = null)
-    {
-        return static::findOne(['access_token' => $token, 'status' => self::STATUS_ACTIVE]);
-    }
+    // public static function findIdentityByAccessToken($token, $type = null)
+    // {
+    //     return static::findOne(['access_token' => $token, 'status' => self::STATUS_ACTIVE]);
+    // }
 
     public function generateAccessToken()
     {
@@ -99,8 +105,8 @@ class User extends UserModel
         return $this->hasOne(Role::className(), ['id' => 'role_id']);
     }
 
-    public function getTeacher() {
-        return $this->hasOne(Teacher::class, ['id' => 'teacher_id']);
-    }
+    // public function getTeacher() {
+    //     return $this->hasOne(Teacher::class, ['id' => 'teacher_id']);
+    // }
 
 }
