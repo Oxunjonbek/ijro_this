@@ -56,7 +56,7 @@ if (!Yii::$app->user->isGuest) {
                     $company_id = 17;
                     break;
                 case 'bugalteriya':
-                    $company_id = '';
+                    $company_id = 32;
                     break;
                 case 'yuridik':
                     $company_id = 20;
@@ -67,8 +67,8 @@ if (!Yii::$app->user->isGuest) {
                 case 'ijro':
                     $company_id = 21;
                     break;
-                case 'smi':
-                    $company_id = '';
+                case 'pressa':
+                    $company_id = 30;
                     break;
                 case 'murojaat':
                     $company_id = 22;
@@ -88,8 +88,14 @@ if (!Yii::$app->user->isGuest) {
                 case 'akkred':
                     $company_id = 27;
                     break;
-                case 'shtirxkod':
+                case 'barcode':
                     $company_id = 28;
+                    break;
+                case 'uztest':
+                    $company_id = 29;
+                    break;
+                case 'antikorp':
+                    $company_id = 31;
                     break;
             }
         }
