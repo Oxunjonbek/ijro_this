@@ -34,12 +34,12 @@ class SiteController extends Controller
 //                'only' => ['logout', 'signup'],
                 'rules' => [
                     [
-                        'actions' => ['login', 'signup','index', 'moliya', 'parent','tadbir','company','generalniy','bolum','tizim'],
+                        'actions' => ['login','index', 'moliya', 'parent','tadbir','company','generalniy','bolum','tizim'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['logout', 'signup'],
+                        'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
