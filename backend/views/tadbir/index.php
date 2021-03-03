@@ -21,7 +21,6 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Тадбир қушиш', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php if (user()->identity->role->name=="admin") :?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -119,76 +118,5 @@ $this->params['breadcrumbs'][] = $this->title;
 
         ],
     ]); ?>
-<?php else :?>
-<?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
 
-            // 'id',
-            // 'company_id',
-    [
-        'attribute' => 'company_id',
-        'format' => 'raw',
-        'filter' => ArrayHelper::map(Company::find()->all(), 'id', 'company_name'),
-        'filterType' => GridView::FILTER_SELECT2,
-        'filterWidgetOptions' =>
-        [
-            'size' => Select2::SIZE_SMALL,
-            'options' => ['prompt' => 'Выберите'],
-            'pluginOptions' => ['allowClear' => true],
-        ],
-        'value'=>'company.company_name'
-    ],
-            // 'tadbir_name:ntext',
-    [
-        'attribute' => 'tadbir_name',
-        'format' => 'html',
-        'filterInputOptions'=>['class' => 'form-control  input-sm'],
-    ],
-            // 'tadbir_content:ntext',
-            [
-        'attribute' => 'tadbir_content',
-        'format' => 'html',
-        'filterInputOptions'=>['class' => 'form-control  input-sm'],
-    ],
-            // 'tadbir_result:ntext',
-            [
-        'attribute' => 'tadbir_result',
-        'format' => 'html',
-        'filterInputOptions'=>['class' => 'form-control  input-sm'],
-    ],
-            [
-        'attribute' => 'masullar',
-        'format' => 'html',
-        'filterInputOptions'=>['class' => 'form-control  input-sm'],
-    ],
-            [
-        'attribute' => 'tadbir_status',
-        'format' => 'html',
-        'filterInputOptions'=>['class' => 'form-control  input-sm'],
-    ],
-    
-            // 'tadbir_date',
-            [
-        'attribute' => 'tadbir_date',
-        'format' => 'text',
-        'filterInputOptions'=>['class' => 'form-control  input-sm'],
-    ],
-            // 'tadbir_description:ntext',
-    [
-        'attribute' => 'tadbir_description',
-        'format' => 'html',
-        'filterInputOptions'=>['class' => 'form-control  input-sm'],
-    ],
-
-            
-            
-
-            ['class' => 'yii\grid\ActionColumn'],
-
-        ],
-    ]); ?>
-<?php endif; ?>
 </div>
