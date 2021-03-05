@@ -169,7 +169,8 @@ if (!Yii::$app->user->isGuest) {
             // 'tadbir_date',
             [
         'attribute' => 'tadbir_date',
-        'format' => 'text',
+        // 'format' => 'text',
+         'format' => ['date', 'php:d-m-Y'],
         'filterInputOptions'=>['class' => 'form-control  input-sm'],
     ],
             // 'tadbir_description:ntext',
@@ -178,22 +179,20 @@ if (!Yii::$app->user->isGuest) {
         'format' => 'html',
         'filterInputOptions'=>['class' => 'form-control  input-sm'],
     ],
-    // [
-    //     'attribute' => 'file',
-    //     'format' => 'raw',
-        // 'filter' => explode($model->file, ',');
-        // 'filter' => ArrayHelper::map(Company::find()->where(['id'=>$company_id])->all()
-                    // , 'id', 'company_name'),
-        // 'filterType' => GridView::FILTER_SELECT2,
-        // 'filterWidgetOptions' =>
-        // [
-        //     'size' => Select2::SIZE_SMALL,
-        //     'options' => ['prompt' => 'Выберите'],
-        //     'pluginOptions' => ['allowClear' => true],
-        // ],
-        // 'value'=>'company.company_name'
-    // ],
-    'file',
+    [
+        'attribute' => 'file',
+             'format' => 'url',
+             // 'value'=>function ($data) {
+                
+                // echo "<pre>";
+                // echo ($data['file']);
+                // echo "</pre>";
+                // exit();
+                // prd($data->files);
+                //         return Html::a($data['files']['file']);
+                //       },
+             ],
+    // 'file',
     // [
     //     'attribute' => 'file',
     //     'format' => 'html',
@@ -298,13 +297,13 @@ if (!Yii::$app->user->isGuest) {
         'format' => 'html',
         'filterInputOptions'=>['class' => 'form-control  input-sm'],
     ],
-    [
-        'attribute' => 'file',
-        'format' => 'raw',
+    // [
+    //     'attribute' => 'file',
+    //     'format' => 'raw',
         // 'filter' => 
         // 'filter' => ArrayHelper::map(Company::find()->where(['id'=>$company_id])->all()
                     // , 'id', 'company_name'),
-        'filterInputOptions'=>['class' => 'form-control  input-sm'],
+        // 'filterInputOptions'=>['class' => 'form-control  input-sm'],
         // 'filterType' => GridView::FILTER_SELECT2,
         // 'filterWidgetOptions' =>
         // [
@@ -313,7 +312,7 @@ if (!Yii::$app->user->isGuest) {
         //     'pluginOptions' => ['allowClear' => true],
         // ],
         // 'value'=>'company.company_name'
-    ],
+    // ],
     [
         'attribute' => 'file',
         'format' => 'html',
