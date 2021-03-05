@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\web\UploadedFile;
 
 /**
  * TadbirController implements the CRUD actions for Tadbir model.
@@ -89,8 +90,20 @@ class TadbirController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             $model->tadbir_date=Yii::$app->formatter->asDate($model->tadbir_date,"php:Y-m-d");
-            $model->save();
-            return $this->redirect(['index']);
+            // $model->save();
+            // return $this->redirect(['index']);
+            $files = UploadedFile::getInstance($model, 'files');
+            if (!empty($files)) {
+                $model->file = random_int(0,9999). '.' . $files->extension;
+            }
+            
+            if ($model->save()) {
+                if (!empty($files)) {
+                    $files->saveAs('uploads/pdf/' . $model->file);
+                    return $this->redirect(['index']);
+                }
+                return $this->redirect(['index']);
+            }
         }
 
         return $this->render('create', [
@@ -110,15 +123,33 @@ class TadbirController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) ) {
-            $model->tadbir_date=Yii::$app->formatter->asDate($model->tadbir_date,"php:Y-m-d");
-            $model->save();
-            return $this->redirect(['view', 'id' => $model->id]);
+         $model->tadbir_date=Yii::$app->formatter->asDate($model->tadbir_date,"php:Y-m-d");
+            // $model->save();
+            // return $this->redirect(['index']);
+         $files = UploadedFile::getInstance($model, 'files');
+         if (!empty($files)) {
+            if (isset($model->file)) {
+                $model->file = $model->file.', '.random_int(0,9999). '.' . $files->extension;
+                    // echo $model->file;exit();
+            }else{
+                
+                $model->file = random_int(0,9999). '.' . $files->extension;
+            }
         }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
+        
+        if ($model->save()) {
+            if (!empty($files)) {
+                $files->saveAs('uploads/pdf/' . $model->file);
+                return $this->redirect(['index']);
+            }
+            return $this->redirect(['index']);
+        }
     }
+
+    return $this->render('update', [
+        'model' => $model,
+    ]);
+}
 
     /**
      * Deletes an existing Tadbir model.

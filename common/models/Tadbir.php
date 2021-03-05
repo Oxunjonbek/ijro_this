@@ -23,6 +23,7 @@ class Tadbir extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+    public $files;
     public static function tableName()
     {
         return 'tadbir';
@@ -40,6 +41,8 @@ class Tadbir extends \yii\db\ActiveRecord
             [['company_id'], 'integer'],
             [['tadbir_status'], 'string', 'max' => 300],
             [['company_id'], 'exist', 'skipOnError' => true, 'targetClass' => Company::className(), 'targetAttribute' => ['company_id' => 'id']],
+             [['file'], 'string', 'max' => 255],
+            [['files'], 'file', 'skipOnEmpty' => true, 'extensions' => 'doc,pdf'],
         ];
     }
 
@@ -58,6 +61,7 @@ class Tadbir extends \yii\db\ActiveRecord
             'tadbir_description' => 'Амалга оширилган ишлар',
             'tadbir_status' => 'Ижро ҳолати',
             'company_id' => 'Бошқарма,Бўлим,Тизим Ташкилотлари',
+            'files' => 'Файл',
         ];
     }
 

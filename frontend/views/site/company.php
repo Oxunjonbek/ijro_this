@@ -85,6 +85,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                                 <th>Муддати</th>
                                 <th>Амалга оширилган ишлар</th>
                                 <th>Ижро ҳолати</th>
+                                <th>File</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -119,6 +120,13 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                                   <?php elseif($tadbir->tadbir_status==="muddat"): ?>
                                   <button value="muddat" type="button" class="btn btn-danger mr-1 mb-1">Муддати ўтган</button>
                                   <?php endif; ?>
+                                </td>
+                                <td colspan="" rowspan="" headers="">
+                                  <?php $files = explode(',', $tadbir->file);
+                                  for ($i=0; $i < count($files); $i++) { 
+                                    echo "<br>";
+                                      echo $files[$i];
+                                    }  ?>
                                 </td>
                                 
                             </tr>
