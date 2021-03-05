@@ -18,95 +18,95 @@ $this->params['breadcrumbs'][] = $this->title;
 $files = [];
 $user = Yii::$app->user->identity;
 if (!Yii::$app->user->isGuest) {
-            switch ($user->username) {
+    switch ($user->username) {
                 // case 'admin':
                 //     $company_id = '';
                 //     break;
-                case 'audit':
-                    $company_id = 18;
-                    break;
+        case 'audit':
+        $company_id = 18;
+        break;
 
-                case 'taxlil':
-                    $company_id = 8;
-                    break;
-                case 'metrologiya':
-                    $company_id = 12;
-                    break;
-                case 'reglament':
-                    $company_id = 10;
-                    break;
-                case 'axborot':
-                    $company_id = 13;
-                    break;
-                case 'standart':
-                    $company_id = 9;
-                    break;
-                case 'sertifikat':
-                    $company_id = 15;
-                    break;
-                case 'smk':
-                    $company_id = 16;
-                    break;
-                case 'xalqaro':
-                    $company_id = 14;
-                    break;
-                case 'integratsiya':
-                    $company_id = 11;
-                    break;
-                case 'moliya':
-                    $company_id = 17;
-                    break;
-                case 'bugalteriya':
-                    $company_id = 32;
-                    break;
-                case 'yuridik':
-                    $company_id = 20;
-                    break;
-                case 'kadr':
-                    $company_id = 19;
-                    break;
-                case 'ijro':
-                    $company_id = 21;
-                    break;
-                case 'pressa':
-                    $company_id = 30;
-                    break;
-                case 'murojaat':
-                    $company_id = 22;
-                    break;
-                case 'xo\'jalik':
-                    $company_id = 23;
-                    break;
-                case 'smsiti':
-                    $company_id = 24;
-                    break;
-                case 'uznim':
-                    $company_id = 25;
-                    break;
-                case 'dep':
-                    $company_id = 26;
-                    break;
-                case 'akkred':
-                    $company_id = 27;
-                    break;
-                case 'barcode':
-                    $company_id = 28;
-                    break;
-                case 'uztest':
-                    $company_id = 29;
-                    break;
-                case 'antikorp':
-                    $company_id = 31;
-                    break;
-            }
-        }
+        case 'taxlil':
+        $company_id = 8;
+        break;
+        case 'metrologiya':
+        $company_id = 12;
+        break;
+        case 'reglament':
+        $company_id = 10;
+        break;
+        case 'axborot':
+        $company_id = 13;
+        break;
+        case 'standart':
+        $company_id = 9;
+        break;
+        case 'sertifikat':
+        $company_id = 15;
+        break;
+        case 'smk':
+        $company_id = 16;
+        break;
+        case 'xalqaro':
+        $company_id = 14;
+        break;
+        case 'integratsiya':
+        $company_id = 11;
+        break;
+        case 'moliya':
+        $company_id = 17;
+        break;
+        case 'bugalteriya':
+        $company_id = 32;
+        break;
+        case 'yuridik':
+        $company_id = 20;
+        break;
+        case 'kadr':
+        $company_id = 19;
+        break;
+        case 'ijro':
+        $company_id = 21;
+        break;
+        case 'pressa':
+        $company_id = 30;
+        break;
+        case 'murojaat':
+        $company_id = 22;
+        break;
+        case 'xo\'jalik':
+        $company_id = 23;
+        break;
+        case 'smsiti':
+        $company_id = 24;
+        break;
+        case 'uznim':
+        $company_id = 25;
+        break;
+        case 'dep':
+        $company_id = 26;
+        break;
+        case 'akkred':
+        $company_id = 27;
+        break;
+        case 'barcode':
+        $company_id = 28;
+        break;
+        case 'uztest':
+        $company_id = 29;
+        break;
+        case 'antikorp':
+        $company_id = 31;
+        break;
+    }
+}
         // $model = new Tadbir();
         // $files = explode(',',$model->file);
         // echo "<pre>";
         // print_r($searchModel->files);
         // exit();
   // $place = \Yii::$app->request;
-        ?>
+?>
 <div class="tadbir-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -115,8 +115,8 @@ if (!Yii::$app->user->isGuest) {
         <?= Html::a('Тадбир қушиш', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-<?php if($user->username=="admin"): ?>
-     <?= GridView::widget([
+    <?php if($user->username=="admin"): ?>
+       <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
@@ -124,106 +124,111 @@ if (!Yii::$app->user->isGuest) {
 
             // 'id',
             // 'company_id',
-    [
-        'attribute' => 'company_id',
-        'format' => 'raw',
-        'filter' => ArrayHelper::map(Company::find()->all(), 'id', 'company_name'),
+            [
+                'attribute' => 'company_id',
+                'format' => 'raw',
+                'filter' => ArrayHelper::map(Company::find()->all(), 'id', 'company_name'),
         // 'filter' => ArrayHelper::map(Company::find()->where(['id'=>$company_id])->all()
                     // , 'id', 'company_name'),
-        'filterType' => GridView::FILTER_SELECT2,
-        'filterWidgetOptions' =>
-        [
-            'size' => Select2::SIZE_SMALL,
-            'options' => ['prompt' => 'Выберите'],
-            'pluginOptions' => ['allowClear' => true],
-        ],
-        'value'=>'company.company_name'
-    ],
+                'filterType' => GridView::FILTER_SELECT2,
+                'filterWidgetOptions' =>
+                [
+                    'size' => Select2::SIZE_SMALL,
+                    'options' => ['prompt' => 'Выберите'],
+                    'pluginOptions' => ['allowClear' => true],
+                ],
+                'value'=>'company.company_name'
+            ],
             // 'tadbir_name:ntext',
-    [
-        'attribute' => 'tadbir_name',
-        'format' => 'html',
-        'filterInputOptions'=>['class' => 'form-control  input-sm'],
-    ],
+            [
+                'attribute' => 'tadbir_name',
+                'format' => 'html',
+                'filterInputOptions'=>['class' => 'form-control  input-sm'],
+            ],
             // 'tadbir_content:ntext',
             [
-        'attribute' => 'tadbir_content',
-        'format' => 'html',
-        'filterInputOptions'=>['class' => 'form-control  input-sm'],
-    ],
+                'attribute' => 'tadbir_content',
+                'format' => 'html',
+                'filterInputOptions'=>['class' => 'form-control  input-sm'],
+            ],
             // 'tadbir_result:ntext',
             [
-        'attribute' => 'tadbir_result',
-        'format' => 'html',
-        'filterInputOptions'=>['class' => 'form-control  input-sm'],
-    ],
+                'attribute' => 'tadbir_result',
+                'format' => 'html',
+                'filterInputOptions'=>['class' => 'form-control  input-sm'],
+            ],
             [
-        'attribute' => 'masullar',
-        'format' => 'html',
-        'filterInputOptions'=>['class' => 'form-control  input-sm'],
-    ],
+                'attribute' => 'masullar',
+                'format' => 'html',
+                'filterInputOptions'=>['class' => 'form-control  input-sm'],
+            ],
             [
-        'attribute' => 'tadbir_status',
-        'format' => 'html',
-        'filterInputOptions'=>['class' => 'form-control  input-sm'],
-    ],
-    
+                'attribute' => 'tadbir_status',
+                'format' => 'html',
+                'filterInputOptions'=>['class' => 'form-control  input-sm'],
+            ],
+
             // 'tadbir_date',
             [
-        'attribute' => 'tadbir_date',
+                'attribute' => 'tadbir_date',
         // 'format' => 'text',
-         'format' => ['date', 'php:d-m-Y'],
-        'filterInputOptions'=>['class' => 'form-control  input-sm'],
-    ],
+                'format' => ['date', 'php:d-m-Y'],
+                'filterInputOptions'=>['class' => 'form-control  input-sm'],
+            ],
             // 'tadbir_description:ntext',
-    [
-        'attribute' => 'tadbir_description',
-        'format' => 'html',
-        'filterInputOptions'=>['class' => 'form-control  input-sm'],
-    ],
-    [
-        'attribute' => 'file',
-             'format' => 'url',
+            [
+                'attribute' => 'tadbir_description',
+                'format' => 'html',
+                'filterInputOptions'=>['class' => 'form-control  input-sm'],
+            ],
+            [
+                'attribute' => 'file',
+                'format' => 'url',
              // 'format' => 'raw',
-    'value' => function ($dataProvider) {
+                'value' => function ($dataProvider) {
 
         // echo "<pre>";
         // print_r($dataProvider);
         // echo "</pre>";
         // exit();
         // $name[];
-        $name = explode(',', $dataProvider->file);
-        $count = count($name);
+                    $name = explode(',', $dataProvider->file);
+                    $count = count($name);
         // print_r($name);
         // exit();
-        if ($count > 1) {
-            for ($i=0; $i < count($name); $i++) { 
-                 $file[] = $_SERVER['SERVER_NAME'].\Yii::$app->request->baseUrl."/uploads/pdf/".$name[$i];
-            }
-                $sep_char = ', ';
-                $str = implode($sep_char, $file);
-            return $str;
+                    if ($count > 1) {
+                        for ($i=0; $i < count($name); $i++) { 
+                           $file[] = $_SERVER['SERVER_NAME'].\Yii::$app->request->baseUrl."/uploads/pdf/".$name[$i];
+                       }
+                       $sep_char = ', ';
+                       $str = implode($sep_char, $file);
+                       return $str;
 
-        }
-        else{
+                   }
+                   else{
+                    if (!empty($dataProvider->file)) {
 
-        $file =  $_SERVER['SERVER_NAME'].\Yii::$app->request->baseUrl."/uploads/pdf/".$dataProvider->file;
-        return $file;
-        }
-     },
-             ],
-    'file',
+                        $file =  $_SERVER['SERVER_NAME'].\Yii::$app->request->baseUrl."/uploads/pdf/".$dataProvider->file;
+                    return $file;
+                    }
+                    return '';
+
+
+                }
+            },
+        ],
+        // 'file',
     // [
     //     'attribute' => 'file',
     //     'format' => 'html',
     //     'filterInputOptions'=>['class' => 'form-control  input-sm'],
     // ],
 
-            
-            
 
-            ['class' => 'yii\grid\ActionColumn',
-          'template' => '{update}{view}{delete}',
+
+
+        ['class' => 'yii\grid\ActionColumn',
+        'template' => '{update}{view}{delete}',
         'buttons' => [
             'delete' => function ($url, $model) 
             {
@@ -250,8 +255,8 @@ if (!Yii::$app->user->isGuest) {
         ],
     ],
 
-        ],
-    ]); ?>
+],
+]); ?>
 <?php else: ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -261,62 +266,62 @@ if (!Yii::$app->user->isGuest) {
 
             // 'id',
             // 'company_id',
-    [
-        'attribute' => 'company_id',
-        'format' => 'raw',
+            [
+                'attribute' => 'company_id',
+                'format' => 'raw',
         // 'filter' => ArrayHelper::map(Company::find()->all(), 'id', 'company_name'),
-        'filter' => ArrayHelper::map(Company::find()->where(['id'=>$company_id])->all()
+                'filter' => ArrayHelper::map(Company::find()->where(['id'=>$company_id])->all()
                     , 'id', 'company_name'),
-        'filterType' => GridView::FILTER_SELECT2,
-        'filterWidgetOptions' =>
-        [
-            'size' => Select2::SIZE_SMALL,
-            'options' => ['prompt' => 'Выберите'],
-            'pluginOptions' => ['allowClear' => true],
-        ],
-        'value'=>'company.company_name'
-    ],
+                'filterType' => GridView::FILTER_SELECT2,
+                'filterWidgetOptions' =>
+                [
+                    'size' => Select2::SIZE_SMALL,
+                    'options' => ['prompt' => 'Выберите'],
+                    'pluginOptions' => ['allowClear' => true],
+                ],
+                'value'=>'company.company_name'
+            ],
             // 'tadbir_name:ntext',
-    [
-        'attribute' => 'tadbir_name',
-        'format' => 'html',
-        'filterInputOptions'=>['class' => 'form-control  input-sm'],
-    ],
+            [
+                'attribute' => 'tadbir_name',
+                'format' => 'html',
+                'filterInputOptions'=>['class' => 'form-control  input-sm'],
+            ],
             // 'tadbir_content:ntext',
             [
-        'attribute' => 'tadbir_content',
-        'format' => 'html',
-        'filterInputOptions'=>['class' => 'form-control  input-sm'],
-    ],
+                'attribute' => 'tadbir_content',
+                'format' => 'html',
+                'filterInputOptions'=>['class' => 'form-control  input-sm'],
+            ],
             // 'tadbir_result:ntext',
             [
-        'attribute' => 'tadbir_result',
-        'format' => 'html',
-        'filterInputOptions'=>['class' => 'form-control  input-sm'],
-    ],
+                'attribute' => 'tadbir_result',
+                'format' => 'html',
+                'filterInputOptions'=>['class' => 'form-control  input-sm'],
+            ],
             [
-        'attribute' => 'masullar',
-        'format' => 'html',
-        'filterInputOptions'=>['class' => 'form-control  input-sm'],
-    ],
+                'attribute' => 'masullar',
+                'format' => 'html',
+                'filterInputOptions'=>['class' => 'form-control  input-sm'],
+            ],
             [
-        'attribute' => 'tadbir_status',
-        'format' => 'html',
-        'filterInputOptions'=>['class' => 'form-control  input-sm'],
-    ],
-    
+                'attribute' => 'tadbir_status',
+                'format' => 'html',
+                'filterInputOptions'=>['class' => 'form-control  input-sm'],
+            ],
+
             // 'tadbir_date',
             [
-        'attribute' => 'tadbir_date',
-        'format' => 'text',
-        'filterInputOptions'=>['class' => 'form-control  input-sm'],
-    ],
+                'attribute' => 'tadbir_date',
+                'format' => 'text',
+                'filterInputOptions'=>['class' => 'form-control  input-sm'],
+            ],
             // 'tadbir_description:ntext',
-    [
-        'attribute' => 'tadbir_description',
-        'format' => 'html',
-        'filterInputOptions'=>['class' => 'form-control  input-sm'],
-    ],
+            [
+                'attribute' => 'tadbir_description',
+                'format' => 'html',
+                'filterInputOptions'=>['class' => 'form-control  input-sm'],
+            ],
     // [
     //     'attribute' => 'file',
     //     'format' => 'raw',
@@ -333,45 +338,45 @@ if (!Yii::$app->user->isGuest) {
         // ],
         // 'value'=>'company.company_name'
     // ],
-    [
-        'attribute' => 'file',
-        'format' => 'html',
-        'filterInputOptions'=>['class' => 'form-control  input-sm'],
-    ],
+            [
+                'attribute' => 'file',
+                'format' => 'html',
+                'filterInputOptions'=>['class' => 'form-control  input-sm'],
+            ],
 
             
             
 
             ['class' => 'yii\grid\ActionColumn',
-          'template' => '{update}{view}{delete}',
-        'buttons' => [
-            'delete' => function ($url, $model) 
-            {
-                return Html::a(
-                    '<span class="fa fa-trash" style="font-size:14px;padding:10px;"></span>', ['delete', 'id' => $model->id],
-                    [
-                        'data' => 
+            'template' => '{update}{view}{delete}',
+            'buttons' => [
+                'delete' => function ($url, $model) 
+                {
+                    return Html::a(
+                        '<span class="fa fa-trash" style="font-size:14px;padding:10px;"></span>', ['delete', 'id' => $model->id],
                         [
-                            'method' => 'POST',
-                            'confirm' => 'Вы уверены, что хотите удалить этот элемент?',
-                            'pjax' => false
-                        ],
-                        'title' => 'Удалить',
-                        'aria-label' => 'Удалить',
-                        'style' => 'display: contents'
-                    ]);
-            },
-            'view' => function ($url, $model) 
-            {
-                return Html::a('<span class="fa fa-eye" style="font-size:14px;"></span>', 
-                    ['view', 'id' => $model->id], 
-                    ['title' => 'Просмотр', 'aria-label' => 'Просмотр']);
-            }
+                            'data' => 
+                            [
+                                'method' => 'POST',
+                                'confirm' => 'Вы уверены, что хотите удалить этот элемент?',
+                                'pjax' => false
+                            ],
+                            'title' => 'Удалить',
+                            'aria-label' => 'Удалить',
+                            'style' => 'display: contents'
+                        ]);
+                },
+                'view' => function ($url, $model) 
+                {
+                    return Html::a('<span class="fa fa-eye" style="font-size:14px;"></span>', 
+                        ['view', 'id' => $model->id], 
+                        ['title' => 'Просмотр', 'aria-label' => 'Просмотр']);
+                }
+            ],
         ],
-    ],
 
-        ],
-    ]); ?>
+    ],
+]); ?>
 <?php endif; ?>
 
 </div>
