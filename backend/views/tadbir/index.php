@@ -364,7 +364,7 @@ if (!Yii::$app->user->isGuest) {
                     if ($count > 1) {
                         for ($i=0; $i < count($name); $i++) { 
                            $file[] =
-                           '<a href="'.\Yii::$app->request->baseUrl."/uploads/pdf/".trim($name[$i]).'">'.$name[$i].'</a><br>';
+                           '<a href="'.\Yii::getAlias('@web')."/uploads/pdf/".trim($name[$i]).'">'.$name[$i].'</a><br>';
                             // Html::a('site/index');
                        }
                        $sep_char = '<br>';
