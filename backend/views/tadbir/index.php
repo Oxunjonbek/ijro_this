@@ -6,6 +6,7 @@ use kartik\grid\GridView;
 use kartik\select2\Select2;
 use yii\helpers\ArrayHelper;
 use common\models\Tadbir;
+// use Yii;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\TadbirSearch */
@@ -104,6 +105,7 @@ if (!Yii::$app->user->isGuest) {
         // echo "<pre>";
         // print_r($searchModel->files);
         // exit();
+  // $place = \Yii::$app->request;
         ?>
 <div class="tadbir-index">
 
@@ -182,17 +184,35 @@ if (!Yii::$app->user->isGuest) {
     [
         'attribute' => 'file',
              'format' => 'url',
-             // 'value'=>function ($data) {
-                
-                // echo "<pre>";
-                // echo ($data['file']);
-                // echo "</pre>";
-                // exit();
-                // prd($data->files);
-                //         return Html::a($data['files']['file']);
-                //       },
+             // 'format' => 'raw',
+    'value' => function ($dataProvider) {
+
+        // echo "<pre>";
+        // print_r($dataProvider);
+        // echo "</pre>";
+        // exit();
+        // $name[];
+        $name = explode(',', $dataProvider->file);
+        $count = count($name);
+        // print_r($name);
+        // exit();
+        if ($count > 1) {
+            for ($i=0; $i < count($name); $i++) { 
+                 $file[] = $_SERVER['SERVER_NAME'].\Yii::$app->request->baseUrl."/uploads/pdf/".$name[$i];
+            }
+                $sep_char = ', ';
+                $str = implode($sep_char, $file);
+            return $str;
+
+        }
+        else{
+
+        $file =  $_SERVER['SERVER_NAME'].\Yii::$app->request->baseUrl."/uploads/pdf/".$dataProvider->file;
+        return $file;
+        }
+     },
              ],
-    // 'file',
+    'file',
     // [
     //     'attribute' => 'file',
     //     'format' => 'html',
