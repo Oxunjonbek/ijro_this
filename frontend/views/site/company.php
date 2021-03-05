@@ -123,10 +123,17 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                                 </td>
                                 <td colspan="" rowspan="" headers="">
                                   <?php $files = explode(',', $tadbir->file);
+                                  $Fcount = count($files);
+                                  if ($Fcount > 1) {
                                   for ($i=0; $i < count($files); $i++) { 
-                                    echo "<br>";
-                                      echo $files[$i];
-                                    }  ?>
+                                      echo "<br>";
+                                      echo '<a href="'.\Yii::$app->request->baseUrl."/uploads/pdf/".$files[$i].'">'.$files[$i].'</a>';
+                                    }
+                                  }else{
+                                    
+                                  echo '<a href="'.\Yii::$app->request->baseUrl."/uploads/pdf/".$tadbir->file.'">'.$tadbir->file.'</a>';
+                                  }
+                                  ?>
                                 </td>
                                 
                             </tr>

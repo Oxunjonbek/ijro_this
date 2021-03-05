@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use common\models\Company;
 use kartik\grid\GridView;
 use kartik\select2\Select2;
@@ -183,7 +184,7 @@ if (!Yii::$app->user->isGuest) {
             ],
             [
                 'attribute' => 'file',
-                'format' => 'url',
+                'format' => 'html',
              // 'format' => 'raw',
                 'value' => function ($dataProvider) {
 
@@ -198,9 +199,11 @@ if (!Yii::$app->user->isGuest) {
         // exit();
                     if ($count > 1) {
                         for ($i=0; $i < count($name); $i++) { 
-                           $file[] = $_SERVER['SERVER_NAME'].\Yii::$app->request->baseUrl."/uploads/pdf/".$name[$i];
+                           $file[] =
+                           '<a href="'.\Yii::$app->request->baseUrl."/uploads/pdf/".$name[$i].'">'.$name[$i].'</a>';
+                            // Html::a('site/index');
                        }
-                       $sep_char = ', ';
+                       $sep_char = '/';
                        $str = implode($sep_char, $file);
                        return $str;
 
@@ -208,7 +211,7 @@ if (!Yii::$app->user->isGuest) {
                    else{
                     if (!empty($dataProvider->file)) {
 
-                        $file =  $_SERVER['SERVER_NAME'].\Yii::$app->request->baseUrl."/uploads/pdf/".$dataProvider->file;
+                        $file = '<a href="'.\Yii::$app->request->baseUrl."/uploads/pdf/".$dataProvider->file.'">'.$dataProvider->file.'</a>';;
                     return $file;
                     }
                     return '';
@@ -338,11 +341,49 @@ if (!Yii::$app->user->isGuest) {
         // ],
         // 'value'=>'company.company_name'
     // ],
+            // [
+            //     'attribute' => 'file',
+            //     'format' => 'html',
+            //     'filterInputOptions'=>['class' => 'form-control  input-sm'],
+            // ],
             [
                 'attribute' => 'file',
                 'format' => 'html',
-                'filterInputOptions'=>['class' => 'form-control  input-sm'],
-            ],
+             // 'format' => 'raw',
+                'value' => function ($dataProvider) {
+
+        // echo "<pre>";
+        // print_r($dataProvider);
+        // echo "</pre>";
+        // exit();
+        // $name[];
+                    $name = explode(',', $dataProvider->file);
+                    $count = count($name);
+        // print_r($name);
+        // exit();
+                    if ($count > 1) {
+                        for ($i=0; $i < count($name); $i++) { 
+                           $file[] =
+                           '<a href="'.\Yii::$app->request->baseUrl."/uploads/pdf/".$name[$i].'">'.$name[$i].'</a>';
+                            // Html::a('site/index');
+                       }
+                       $sep_char = '/';
+                       $str = implode($sep_char, $file);
+                       return $str;
+
+                   }
+                   else{
+                    if (!empty($dataProvider->file)) {
+
+                        $file = '<a href="'.\Yii::$app->request->baseUrl."/uploads/pdf/".$dataProvider->file.'">'.$dataProvider->file.'</a>';;
+                    return $file;
+                    }
+                    return '';
+
+
+                }
+            },
+        ],
 
             
             
