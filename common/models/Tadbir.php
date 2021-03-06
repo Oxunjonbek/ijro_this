@@ -74,4 +74,91 @@ class Tadbir extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Company::className(), ['id' => 'company_id']);
     }
+
+    public function companySelect($user)
+    {
+        if (!Yii::$app->user->isGuest) {
+            switch ($user->username) {
+                case 'audit':
+                $company_id = 18;
+                break;
+                case 'taxlil':
+                $company_id = 8;
+                break;
+                case 'metrologiya':
+                $company_id = 12;
+                break;
+                case 'reglament':
+                $company_id = 10;
+                break;
+                case 'axborot':
+                $company_id = 13;
+                break;
+                case 'standart':
+                $company_id = 9;
+                break;
+                case 'sertifikat':
+                $company_id = 15;
+                break;
+                case 'smk':
+                $company_id = 16;
+                break;
+                case 'xalqaro':
+                $company_id = 14;
+                break;
+                case 'integratsiya':
+                $company_id = 11;
+                break;
+                case 'moliya':
+                $company_id = 17;
+                break;
+                case 'bugalteriya':
+                $company_id = 32;
+                break;
+                case 'yuridik':
+                $company_id = 20;
+                break;
+                case 'kadr':
+                $company_id = 19;
+                break;
+                case 'ijro':
+                $company_id = 21;
+                break;
+                case 'pressa':
+                $company_id = 30;
+                break;
+                case 'murojaat':
+                $company_id = 22;
+                break;
+                case 'xo\'jalik':
+                $company_id = 23;
+                break;
+                case 'smsiti':
+                $company_id = 24;
+                break;
+                case 'uznim':
+                $company_id = 25;
+                break;
+                case 'dep':
+                $company_id = 26;
+                break;
+                case 'akkred':
+                $company_id = 27;
+                break;
+                case 'barcode':
+                $company_id = 28;
+                break;
+                case 'uztest':
+                $company_id = 29;
+                break;
+                case 'antikorp':
+                $company_id = 31;
+                break;
+                default;
+                $company_id ='';
+            }
+        }
+
+        return $company_id;
+    }
 }

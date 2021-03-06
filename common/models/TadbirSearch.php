@@ -55,12 +55,12 @@ class TadbirSearch extends Tadbir
             // $query->where('0=1');
             return $dataProvider;
         }
-
+        // print_r($params);die;
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
             'tadbir_date' => $this->tadbir_date,
-            'company_id' => $this->company_id,
+            'company_id' => $params['company_id']
         ]);
 
         $query->andFilterWhere(['like', 'tadbir_name', $this->tadbir_name])

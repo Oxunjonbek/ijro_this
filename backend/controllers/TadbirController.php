@@ -10,7 +10,6 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\web\UploadedFile;
-
 /**
  * TadbirController implements the CRUD actions for Tadbir model.
  */
@@ -58,7 +57,14 @@ class TadbirController extends Controller
     public function actionIndex()
     {
         $searchModel = new TadbirSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $queryParams = Yii::$app->request->queryParams;
+        $user = Yii::$app->user->identity;
+        // print_r($queryParams);die;
+        $company_id = $searchModel->companySelect($user);
+        $queryParams['company_id'] = $company_id;
+        $dataProvider = $searchModel->search($queryParams);
+
+        
 
         return $this->render('index', [
             'searchModel' => $searchModel,

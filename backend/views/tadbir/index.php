@@ -16,6 +16,9 @@ use common\models\Tadbir;
 $this->title = 'Тадбирлар';
 $this->params['breadcrumbs'][] = $this->title;
 // $user = Yii::$app->user->identity;
+// prd($dataProvider);
+
+//         exit();
 $files = [];
 $user = Yii::$app->user->identity;
 if (!Yii::$app->user->isGuest) {
@@ -117,7 +120,7 @@ if (!Yii::$app->user->isGuest) {
     </p>
 
     <?php if($user->username=="admin"): ?>
-       <?= GridView::widget([
+     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
@@ -199,20 +202,20 @@ if (!Yii::$app->user->isGuest) {
         // exit();
                     if ($count > 1) {
                         for ($i=0; $i < count($name); $i++) { 
-                           $file[] =
-                           '<a href="'.\Yii::$app->request->baseUrl."/uploads/pdf/".$name[$i].'">'.$name[$i].'</a>';
+                         $file[] =
+                         '<a href="'.\Yii::$app->request->baseUrl."/uploads/pdf/".$name[$i].'">'.$name[$i].'</a>';
                             // Html::a('site/index');
-                       }
-                       $sep_char = '/';
-                       $str = implode($sep_char, $file);
-                       return $str;
+                     }
+                     $sep_char = '/';
+                     $str = implode($sep_char, $file);
+                     return $str;
 
-                   }
-                   else{
+                 }
+                 else{
                     if (!empty($dataProvider->file)) {
 
                         $file = '<a href="'.\Yii::$app->request->baseUrl."/uploads/pdf/".$dataProvider->file.'">'.$dataProvider->file.'</a>';;
-                    return $file;
+                        return $file;
                     }
                     return '';
 
@@ -290,41 +293,51 @@ if (!Yii::$app->user->isGuest) {
                 'format' => 'html',
                 'filterInputOptions'=>['class' => 'form-control  input-sm'],
             ],
+        //     [
+        //         'attribute' => 'tadbir_name',
+        //         'format' => 'html',
+        //         'value'=>['class' => function($company_id){
+        //             // $tadbir = Tadbir::find()->where(['company_id'=>$company_id])->all();
+        //             $tadbir = ArrayHelper::map(Tadbir::find()->where(['company_id'=>$company_id])->all(), 'id', 'tadbir_name');
+        //             return $tadbir;
+        //         }
+        //     ],
+        // ],
             // 'tadbir_content:ntext',
-            [
-                'attribute' => 'tadbir_content',
-                'format' => 'html',
-                'filterInputOptions'=>['class' => 'form-control  input-sm'],
-            ],
+        [
+            'attribute' => 'tadbir_content',
+            'format' => 'html',
+            'filterInputOptions'=>['class' => 'form-control  input-sm'],
+        ],
             // 'tadbir_result:ntext',
-            [
-                'attribute' => 'tadbir_result',
-                'format' => 'html',
-                'filterInputOptions'=>['class' => 'form-control  input-sm'],
-            ],
-            [
-                'attribute' => 'masullar',
-                'format' => 'html',
-                'filterInputOptions'=>['class' => 'form-control  input-sm'],
-            ],
-            [
-                'attribute' => 'tadbir_status',
-                'format' => 'html',
-                'filterInputOptions'=>['class' => 'form-control  input-sm'],
-            ],
+        [
+            'attribute' => 'tadbir_result',
+            'format' => 'html',
+            'filterInputOptions'=>['class' => 'form-control  input-sm'],
+        ],
+        [
+            'attribute' => 'masullar',
+            'format' => 'html',
+            'filterInputOptions'=>['class' => 'form-control  input-sm'],
+        ],
+        [
+            'attribute' => 'tadbir_status',
+            'format' => 'html',
+            'filterInputOptions'=>['class' => 'form-control  input-sm'],
+        ],
 
             // 'tadbir_date',
-            [
-                'attribute' => 'tadbir_date',
-                'format' => 'text',
-                'filterInputOptions'=>['class' => 'form-control  input-sm'],
-            ],
+        [
+            'attribute' => 'tadbir_date',
+            'format' => 'text',
+            'filterInputOptions'=>['class' => 'form-control  input-sm'],
+        ],
             // 'tadbir_description:ntext',
-            [
-                'attribute' => 'tadbir_description',
-                'format' => 'html',
-                'filterInputOptions'=>['class' => 'form-control  input-sm'],
-            ],
+        [
+            'attribute' => 'tadbir_description',
+            'format' => 'html',
+            'filterInputOptions'=>['class' => 'form-control  input-sm'],
+        ],
     // [
     //     'attribute' => 'file',
     //     'format' => 'raw',
@@ -346,77 +359,78 @@ if (!Yii::$app->user->isGuest) {
             //     'format' => 'html',
             //     'filterInputOptions'=>['class' => 'form-control  input-sm'],
             // ],
-            [
-                'attribute' => 'file',
-                'format' => 'html',
+        [
+            'attribute' => 'file',
+            'format' => 'html',
              // 'format' => 'raw',
-                'value' => function ($dataProvider) {
+            'value' => function ($dataProvider) {
 
         // echo "<pre>";
         // print_r($dataProvider);
         // echo "</pre>";
         // exit();
         // $name[];
-                    $name = explode(',', $dataProvider->file);
-                    $count = count($name);
+                $name = explode(',', $dataProvider->file);
+                $count = count($name);
         // print_r($name);
         // exit();
-                    if ($count > 1) {
-                        for ($i=0; $i < count($name); $i++) { 
-                           $file[] =
-                           '<a href="'.\Yii::getAlias('@web')."/uploads/pdf/".trim($name[$i]).'">'.$name[$i].'</a><br>';
-                            // Html::a('site/index');
-                       }
-                       $sep_char = '<br>';
-                       $str = implode($sep_char, $file);
-                       return $str;
+                if ($count > 1) {
+                    for ($i=0; $i < count($name); $i++) { 
+                     $file[] =
+                     '<a href="'.trim(\Yii::$app->request->baseUrl."/uploads/pdf/".$name[$i]).'">'.$name[$i].'</a><br>';
+                    // Html::a($name[$i],\Yii::$app->request->baseUrl.'/uploads/pdf/'.$name[$i]);
+                    // Html::a($name[$i],['yuklash','id'=>$name[$i]->id],['class'=>'btn btn-success']);
+                 }
+                 $sep_char = '<br>';
+                 $str = implode($sep_char, $file);
+                 return $str;
 
-                   }
-                   else{
-                    if (!empty($dataProvider->file)) {
+             }
+             else{
+                if (!empty($dataProvider->file)) {
 
-                        $file = '<a href="'.\Yii::$app->request->baseUrl."/uploads/pdf/".$dataProvider->file.'">'.$dataProvider->file.'</a>';;
+                    $file = '<a href="'.\Yii::$app->request->baseUrl."/uploads/pdf/".$dataProvider->file.'">'.$dataProvider->file.'</a>';;
                     return $file;
-                    }
-                    return '';
-
-
                 }
-            },
-        ],
+                return '';
 
-            
-            
 
-            ['class' => 'yii\grid\ActionColumn',
-            'template' => '{update}{view}{delete}',
-            'buttons' => [
-                'delete' => function ($url, $model) 
-                {
-                    return Html::a(
-                        '<span class="fa fa-trash" style="font-size:14px;padding:10px;"></span>', ['delete', 'id' => $model->id],
-                        [
-                            'data' => 
-                            [
-                                'method' => 'POST',
-                                'confirm' => 'Вы уверены, что хотите удалить этот элемент?',
-                                'pjax' => false
-                            ],
-                            'title' => 'Удалить',
-                            'aria-label' => 'Удалить',
-                            'style' => 'display: contents'
-                        ]);
-                },
-                'view' => function ($url, $model) 
-                {
-                    return Html::a('<span class="fa fa-eye" style="font-size:14px;"></span>', 
-                        ['view', 'id' => $model->id], 
-                        ['title' => 'Просмотр', 'aria-label' => 'Просмотр']);
-                }
-            ],
-        ],
-
+            }
+        },
     ],
+
+
+
+
+    ['class' => 'yii\grid\ActionColumn',
+    'template' => '{update}{view}{delete}',
+    'buttons' => [
+        'delete' => function ($url, $model) 
+        {
+            return Html::a(
+                '<span class="fa fa-trash" style="font-size:14px;padding:10px;"></span>', ['delete', 'id' => $model->id],
+                [
+                    'data' => 
+                    [
+                        'method' => 'POST',
+                        'confirm' => 'Вы уверены, что хотите удалить этот элемент?',
+                        'pjax' => false
+                    ],
+                    'title' => 'Удалить',
+                    'aria-label' => 'Удалить',
+                    'style' => 'display: contents'
+                ]);
+        },
+        'view' => function ($url, $model) 
+        {
+            return Html::a('<span class="fa fa-eye" style="font-size:14px;"></span>', 
+                ['view', 'id' => $model->id], 
+                ['title' => 'Просмотр', 'aria-label' => 'Просмотр']);
+        }
+    ],
+],
+
+],
 ]); ?>
 <?php endif; ?>
 
