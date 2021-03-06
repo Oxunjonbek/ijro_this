@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use common\models\LoginForm;
 use common\models\Tadbir;
 use common\models\Company;
+use common\models\CalendarSearch;
 use frontend\models\ContactForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResendVerificationEmailForm;
@@ -76,8 +77,8 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionIndex()
-    {
+    // public function actionIndex()
+    // {
         // if (!user()->isGuest) {
         //     switch (user()->identity->role->name) {
         //         case 'tasischi':
@@ -86,9 +87,18 @@ class SiteController extends Controller
         //     }
         // }
 
-        $tadbir = Tadbir::find()->all();
-        $company =  Company::find()->all();
-        return $this->render('index',['tadbir'=>$tadbir,'company'=>$company]);
+    //     $tadbir = Tadbir::find()->all();
+    //     $company =  Company::find()->all();
+    //     return $this->render('index',['tadbir'=>$tadbir,'company'=>$company]);
+    // }
+    public function actionIndex()
+    {
+        $searchModel = new CalendarSearch;
+        $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
+
+        return $this->render('index', [
+                'dataProvider' => $dataProvider
+            ]);
     }
 
     /**

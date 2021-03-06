@@ -3,12 +3,13 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Tadbir */
-$this->title = 'Тадбир қушиш';
-$this->params['breadcrumbs'][] = ['label' => 'Tadbirs', 'url' => ['index']];
+/* @var $model common\models\Calendar */
+
+$this->title = 'Create Calendar';
+$this->params['breadcrumbs'][] = ['label' => 'Calendars', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="tadbir-create">
+<div class="calendar-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

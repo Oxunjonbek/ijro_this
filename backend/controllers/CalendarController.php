@@ -3,17 +3,17 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Tadbir;
-use common\models\TadbirSearch;
+use common\models\Calendar;
+use common\models\CalendarSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use yii\web\UploadedFile;
+
 /**
- * TadbirController implements the CRUD actions for Tadbir model.
+ * CalendarController implements the CRUD actions for Calendar model.
  */
-class TadbirController extends Controller
+class CalendarController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -25,7 +25,7 @@ class TadbirController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['index', 'create', 'update', 'view','delete'],
+                        'actions' => [ 'index','create','update'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -51,29 +51,31 @@ class TadbirController extends Controller
     }
 
     /**
-     * Lists all Tadbir models.
+     * Lists all Calendar models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new TadbirSearch();
-        $queryParams = Yii::$app->request->queryParams;
-        $user = Yii::$app->user->identity;
-        // print_r($queryParams);die;
-        $company_id = $searchModel->companySelect($user);
-        $queryParams['company_id'] = $company_id;
-        $dataProvider = $searchModel->search($queryParams);
-
-        
+        $searchModel = new CalendarSearch;
+        $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+                'dataProvider' => $dataProvider
+            ]);
     }
+    // public function actionIndex()
+    // {
+    //     $searchModel = new CalendarSearch();
+    //     $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+    //     return $this->render('index', [
+    //         'searchModel' => $searchModel,
+    //         'dataProvider' => $dataProvider,
+    //     ]);
+    // }
 
     /**
-     * Displays a single Tadbir model.
+     * Displays a single Calendar model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -86,30 +88,16 @@ class TadbirController extends Controller
     }
 
     /**
-     * Creates a new Tadbir model.
+     * Creates a new Calendar model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Tadbir();
+        $model = new Calendar();
 
-        if ($model->load(Yii::$app->request->post())) {
-            $model->tadbir_date=Yii::$app->formatter->asDate($model->tadbir_date,"php:Y-m-d");
-            // $model->save();
-            // return $this->redirect(['index']);
-            $files = UploadedFile::getInstance($model, 'files');
-            if (!empty($files)) {
-                $model->file = random_int(0,9999). '.' . $files->extension;
-            }
-            
-            if ($model->save()) {
-                if (!empty($files)) {
-                    $files->saveAs('uploads/pdf/' . $model->file);
-                    return $this->redirect(['index']);
-                }
-                return $this->redirect(['index']);
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
@@ -118,7 +106,7 @@ class TadbirController extends Controller
     }
 
     /**
-     * Updates an existing Tadbir model.
+     * Updates an existing Calendar model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -128,37 +116,17 @@ class TadbirController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) ) {
-         $model->tadbir_date=Yii::$app->formatter->asDate($model->tadbir_date,"php:Y-m-d");
-            // $model->save();
-            // return $this->redirect(['index']);
-         $files = UploadedFile::getInstance($model, 'files');
-         if (!empty($files)) {
-            if (isset($model->file)) {
-                $model->file = $model->file.', '.random_int(0,9999). '.' . $files->extension;
-                    // echo $model->file;exit();
-            }else{
-                
-                $model->file = random_int(0,9999). '.' . $files->extension;
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
-        
-        if ($model->save()) {
-            if (!empty($files)) {
-                $files->saveAs('uploads/pdf/' . $model->file);
-                return $this->redirect(['index']);
-            }
-            return $this->redirect(['index']);
-        }
+
+        return $this->render('update', [
+            'model' => $model,
+        ]);
     }
 
-    return $this->render('update', [
-        'model' => $model,
-    ]);
-}
-
     /**
-     * Deletes an existing Tadbir model.
+     * Deletes an existing Calendar model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -172,15 +140,15 @@ class TadbirController extends Controller
     }
 
     /**
-     * Finds the Tadbir model based on its primary key value.
+     * Finds the Calendar model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Tadbir the loaded model
+     * @return Calendar the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Tadbir::findOne($id)) !== null) {
+        if (($model = Calendar::findOne($id)) !== null) {
             return $model;
         }
 

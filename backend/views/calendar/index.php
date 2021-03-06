@@ -8,19 +8,16 @@ use marekpetras\calendarview\CalendarView;
 /* @var $searchModel common\models\CalendarSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Календар';
-// $this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Calendars';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="calendar-index">
 
-    <!-- <h1> -->
-        <?php // Html::encode($this->title) ?>
-            
-        <!-- </h1> -->
+    <h1><?= Html::encode($this->title) ?></h1>
 
-    <!-- <p> -->
-        <?php //= Html::a('Create Calendar', ['create'], ['class' => 'btn btn-success']) ?>
-    <!-- </p> -->
+    <p>
+        <?= Html::a('Create Calendar', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
 
     <?php echo CalendarView::widget(
     [
@@ -32,7 +29,7 @@ $this->title = 'Календар';
 
         // optional params with their defaults
         'weekStart' => 1, // date('w') // which day to display first in the calendar
-        'title'     => 'Календар',
+        'title'     => 'Calendar',
 
         'views'     => [
             'calendar' => '@vendor/marekpetras/yii2-calendarview-widget/views/calendar',

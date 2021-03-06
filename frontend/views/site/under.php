@@ -7,7 +7,8 @@ use  yii\helpers\Url;
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-LoginAsset::register($this);
+// LoginAsset::register($this);
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -36,104 +37,80 @@ LoginAsset::register($this);
 data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
 
 <?php $this->beginBody() ?>
+<!-- projects table with monthly chart -->
+<div class="row">
 
-<div class="app-content content">
-  <div class="content-overlay"></div>
-  <div class="content-wrapper">
-    <div class="content-header row">
-    </div>
-    <!-- <section class="row" > -->
-      <div class="content-body">
-       <!-- <section class="row flexbox-container"> -->
-        <!-- <div class="col-xl-7 col-md-8 col-12"> -->
-          <div class="card bg-transparent shadow-none">
-            <div class="card-content">
-              <div class="card-body text-center">
-                <img src="<?= bu('themes/robust/app-assets/images/pages/maintenance-2.png')?>" class="img-fluid" alt="under maintenance"
-                width="400">
-                <h1 class="error-title my-1">На техобслуживании!</h1>
-                <p class="px-2">
-                  Приносим извинения за неудобства, но в настоящее время мы проводим техническое обслуживание. Если ты нужен
-                   всегда может <a href="mailto:hello@help.com">Связаться с нами</a>, в противном случае мы скоро вернемся онлайн!
-                </p><div>
-                <a href="<?=Url::to(['site/index'])?>" class="btn btn-primary round glow mt-2">НАЗАД К ГЛАВНЫЙ </a></div>
-              </div>
+    <div class="col-xl-12 col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">ИЖРО НАЗОРАТИ</h4>
+                <a class="heading-elements-toggle"><i class="ft-more-horizontal font-medium-3"></i></a>
+                <div class="heading-elements">
+                    <ul class="list-inline mb-0">
+                        <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                    </ul>
+                </div>
             </div>
-          </div>
-        <!-- </div> -->
-      <!-- </section> -->
-      <!-- maintenance end -->
+            <div class="card-content">
+                <div class="card-body">
+                    <!-- <p class="m-0">Total ongoing projects 6<span class="float-right"><a href="project-summary.html" target="_blank">Project Summary <i class="ft-arrow-right"></i></a></span></p> -->
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover mb-10">
+                        <thead>
+                            <tr>
+                                <th class="width-350 text-center">Таркибий бўлинма</th>
+                                <th class="width-350 text-center">Фоизда</th>
+                                <th class="width-350 text-center">Тадбир сони</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          <?php foreach ($company as $key => $value) :?>
+<?php $id = $value->id; ?>
+                            <tr>
+                                <td class="width-350 text-left">
+
+                                 <a href="<?=Url::to(['site/company','id' =>$id]) ?>" title=""> <?=$value->company_name?></a></td>
+                                  <?php $count = count(common\models\Tadbir::find()->where(['company_id'=>$value->id])->all());
+
+                                  $calculate = count(common\models\Tadbir::find()->where(['company_id'=>$value->id,'tadbir_status'=>'bajarildi'])->all());
+// echo $calculate;die();
+                                  // $result = ($calculate/$count)*100;
+                                  ?>
+                                  <?php $count = count(common\models\Tadbir::find()->where(['company_id'=>$value->id])->all());
+                                  $calculate = count(common\models\Tadbir::find()->where(['company_id'=>$value->id,'tadbir_status'=>'bajarildi'])->all());
+                                 if ($count===0) {
+                          $count = 1;
+                          $result = '0';
+                        }else{
+                          $result = round(($calculate/$count)*100 , 2);
+                        }
+                                    // echo $result;
+                                  ?>
+                                  <td class="width-350 text-center">
+                                    <a href="<?=Url::to(['site/company','id' =>$id]) ?>" title=""><div class="progress m-0" style="height: 50px;">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: <?=$result ?>%" aria-valuenow="<?=$result ?>" aria-valuemin="0" aria-valuemax="100"><h3 class="text-center"><?=$result ?>%</h3></div>
+                                    </div></a>
+                                </td>
+                                <td class="width-350 text-center"> 
+                                    <a href="<?=Url::to(['site/company','id' =>$id]) ?>" title=""><?= $count; ?></a>
+                                </td>
+                            </tr>
+                        <?php endforeach;?>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-
-
-
-
-  </div>
-
+   
 </div>
+
 
 
 <?php $this->endBody() ?>
 </body>
 </html>
 <?php $this->endPage() ?>
-  <tr>
-                                <td class="text-truncate">Fitness App</td>
-                                <td class="text-truncate">
-                                    <span class="avatar avatar-xs"><img src="<?= bu('themes/robust/app-assets/images/portrait/small/avatar-s-5.png') ?>" alt="avatar"></span> <span>Edward C.</span>
-                                </td>
-                                <td class="text-truncate"><span class="tag tag-warning">Medium</span></td>
-                                <td class="valign-middle">
-                                    <div class="progress m-0" style="height: 7px;">
-                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-truncate">SOU plugin</td>
-                                <td class="text-truncate">
-                                    <span class="avatar avatar-xs"><img src="<?= bu('themes/robust/app-assets/images/portrait/small/avatar-s-6.png') ?>" alt="avatar"></span> <span>Carol E.</span>
-                                </td>
-                                <td class="text-truncate"><span class="tag tag-danger">Critical</span></td>
-                                <td class="valign-middle">
-                                    <div class="progress m-0" style="height: 7px;">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-truncate">Android App</td>
-                                <td class="text-truncate">
-                                    <span class="avatar avatar-xs"><img src="<?= bu('themes/robust/app-assets/images/portrait/small/avatar-s-7.png') ?>" alt="avatar"></span> <span>Gregory L.</span>
-                                </td>
-                                <td class="text-truncate"><span class="tag tag-success">Low</span></td>
-                                <td class="valign-middle">
-                                    <div class="progress m-0" style="height: 7px;">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-truncate">ABC Inc. UI/UX</td>
-                                <td class="text-truncate">
-                                    <span class="avatar avatar-xs"><img src="<?= bu('themes/robust/app-assets/images/portrait/small/avatar-s-8.png') ?>" alt="avatar"></span> <span>Susan S.</span>
-                                </td>
-                                <td class="text-truncate"><span class="tag tag-warning">Medium</span></td>
-                                <td class="valign-middle">
-                                    <div class="progress m-0" style="height: 7px;">
-                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 45%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-truncate">Product UI</td>
-                                <td class="text-truncate">
-                                    <span class="avatar avatar-xs"><img src="<?= bu('themes/robust/app-assets/images/portrait/small/avatar-s-9.png') ?>" alt="avatar"></span> <span>Walter K.</span>
-                                </td>
-                                <td class="text-truncate"><span class="tag tag-danger">Critical</span></td>
-                                <td class="valign-middle">
-                                    <div class="progress m-0" style="height: 7px;">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </td>
-                            </tr>
+
