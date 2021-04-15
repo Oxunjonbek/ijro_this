@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\grid\GridView;
 use marekpetras\calendarview\CalendarView;
 
@@ -28,10 +29,11 @@ $this->title = 'Календар';
         'dataProvider'  => $dataProvider,
         'dateField'     => 'date',
         'valueField'    => 'val',
+        // 'tadbir_id'     =>'tadbir_id',
 
 
         // optional params with their defaults
-        'weekStart' => 1, // date('w') // which day to display first in the calendar
+        'weekStart' => 2, // date('w') // which day to display first in the calendar
         'title'     => 'Календар',
 
         'views'     => [
@@ -44,19 +46,19 @@ $this->title = 'Календар';
         'endYear' => date('Y') + 1,
 
         'link' => false,
-        /* alternates to link , is called on every models valueField, used in Html::a( valueField , link )
+         // alternates to link , is called on every models valueField, used in Html::a( valueField , link )
         'link' => 'site/view',
         'link' => function($model,$calendar){
             return ['calendar/view','id'=>$model->id];
         },
-        */
+        
 
         'dayRender' => false,
-        /* alternate to dayRender
+         // alternate to dayRender
         'dayRender' => function($model,$calendar) {
             return '<p>'.$model->id.'</p>';
         },
-        */
+        
 
     ]
 );?>

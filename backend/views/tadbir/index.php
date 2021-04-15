@@ -120,7 +120,7 @@ if (!Yii::$app->user->isGuest) {
     </p>
 
     <?php if($user->username=="admin"): ?>
-     <?= GridView::widget([
+       <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
@@ -196,22 +196,24 @@ if (!Yii::$app->user->isGuest) {
         // echo "</pre>";
         // exit();
         // $name[];
-                    $name = explode(',', $dataProvider->file);
+                    // $name = explode(',', $dataProvider->file);
+                    $name = preg_replace('/\s+/', '', $dataProvider->file);
+                    $name = explode(',', $name);
                     $count = count($name);
         // print_r($name);
         // exit();
                     if ($count > 1) {
                         for ($i=0; $i < count($name); $i++) { 
-                         $file[] =
-                         '<a href="'.\Yii::$app->request->baseUrl."/uploads/pdf/".$name[$i].'">'.$name[$i].'</a>';
+                           $file[] =
+                           '<a href="'.\Yii::$app->request->baseUrl."/uploads/pdf/".$name[$i].'">'.$name[$i].'</a>';
                             // Html::a('site/index');
-                     }
-                     $sep_char = '/';
-                     $str = implode($sep_char, $file);
-                     return $str;
+                       }
+                       $sep_char = '/';
+                       $str = implode($sep_char, $file);
+                       return $str;
 
-                 }
-                 else{
+                   }
+                   else{
                     if (!empty($dataProvider->file)) {
 
                         $file = '<a href="'.\Yii::$app->request->baseUrl."/uploads/pdf/".$dataProvider->file.'">'.$dataProvider->file.'</a>';;
@@ -304,40 +306,40 @@ if (!Yii::$app->user->isGuest) {
         //     ],
         // ],
             // 'tadbir_content:ntext',
-        [
-            'attribute' => 'tadbir_content',
-            'format' => 'html',
-            'filterInputOptions'=>['class' => 'form-control  input-sm'],
-        ],
+            [
+                'attribute' => 'tadbir_content',
+                'format' => 'html',
+                'filterInputOptions'=>['class' => 'form-control  input-sm'],
+            ],
             // 'tadbir_result:ntext',
-        [
-            'attribute' => 'tadbir_result',
-            'format' => 'html',
-            'filterInputOptions'=>['class' => 'form-control  input-sm'],
-        ],
-        [
-            'attribute' => 'masullar',
-            'format' => 'html',
-            'filterInputOptions'=>['class' => 'form-control  input-sm'],
-        ],
-        [
-            'attribute' => 'tadbir_status',
-            'format' => 'html',
-            'filterInputOptions'=>['class' => 'form-control  input-sm'],
-        ],
+            [
+                'attribute' => 'tadbir_result',
+                'format' => 'html',
+                'filterInputOptions'=>['class' => 'form-control  input-sm'],
+            ],
+            [
+                'attribute' => 'masullar',
+                'format' => 'html',
+                'filterInputOptions'=>['class' => 'form-control  input-sm'],
+            ],
+            [
+                'attribute' => 'tadbir_status',
+                'format' => 'html',
+                'filterInputOptions'=>['class' => 'form-control  input-sm'],
+            ],
 
             // 'tadbir_date',
-        [
-            'attribute' => 'tadbir_date',
-            'format' => 'text',
-            'filterInputOptions'=>['class' => 'form-control  input-sm'],
-        ],
+            [
+                'attribute' => 'tadbir_date',
+                'format' => 'text',
+                'filterInputOptions'=>['class' => 'form-control  input-sm'],
+            ],
             // 'tadbir_description:ntext',
-        [
-            'attribute' => 'tadbir_description',
-            'format' => 'html',
-            'filterInputOptions'=>['class' => 'form-control  input-sm'],
-        ],
+            [
+                'attribute' => 'tadbir_description',
+                'format' => 'html',
+                'filterInputOptions'=>['class' => 'form-control  input-sm'],
+            ],
     // [
     //     'attribute' => 'file',
     //     'format' => 'raw',
@@ -359,76 +361,76 @@ if (!Yii::$app->user->isGuest) {
             //     'format' => 'html',
             //     'filterInputOptions'=>['class' => 'form-control  input-sm'],
             // ],
-        [
-            'attribute' => 'file',
-            'format' => 'html',
+            [
+                'attribute' => 'file',
+                'format' => 'html',
              // 'format' => 'raw',
-            'value' => function ($dataProvider) {
+                'value' => function ($dataProvider) {
 
         // echo "<pre>";
         // print_r($dataProvider);
         // echo "</pre>";
         // exit();
         // $name[];
-                $name = explode(',', $dataProvider->file);
-                $count = count($name);
+                    $name = explode(',', $dataProvider->file);
+                    $count = count($name);
         // print_r($name);
         // exit();
-                if ($count > 1) {
-                    for ($i=0; $i < count($name); $i++) { 
-                     $file[] =
-                     '<a href="'.trim(\Yii::$app->request->baseUrl."/uploads/pdf/".$name[$i]).'">'.$name[$i].'</a><br>';
+                    if ($count > 1) {
+                        for ($i=0; $i < count($name); $i++) { 
+                           $file[] =
+                           '<a href="'.trim(\Yii::$app->request->baseUrl."/uploads/pdf/".$name[$i]).'">'.$name[$i].'</a><br>';
                     // Html::a($name[$i],\Yii::$app->request->baseUrl.'/uploads/pdf/'.$name[$i]);
                     // Html::a($name[$i],['yuklash','id'=>$name[$i]->id],['class'=>'btn btn-success']);
-                 }
-                 $sep_char = '<br>';
-                 $str = implode($sep_char, $file);
-                 return $str;
+                       }
+                       $sep_char = '<br>';
+                       $str = implode($sep_char, $file);
+                       return $str;
 
-             }
-             else{
-                if (!empty($dataProvider->file)) {
+                   }
+                   else{
+                    if (!empty($dataProvider->file)) {
 
-                    $file = '<a href="'.\Yii::$app->request->baseUrl."/uploads/pdf/".$dataProvider->file.'">'.$dataProvider->file.'</a>';;
-                    return $file;
+                        $file = '<a href="'.\Yii::$app->request->baseUrl."/uploads/pdf/".$dataProvider->file.'">'.$dataProvider->file.'</a>';;
+                        return $file;
+                    }
+                    return '';
+
+
                 }
-                return '';
-
-
-            }
-        },
-    ],
+            },
+        ],
 
 
 
 
-    ['class' => 'yii\grid\ActionColumn',
-    'template' => '{update}{view}{delete}',
-    'buttons' => [
-        'delete' => function ($url, $model) 
-        {
-            return Html::a(
-                '<span class="fa fa-trash" style="font-size:14px;padding:10px;"></span>', ['delete', 'id' => $model->id],
-                [
-                    'data' => 
+        ['class' => 'yii\grid\ActionColumn',
+        'template' => '{update}{view}{delete}',
+        'buttons' => [
+            'delete' => function ($url, $model) 
+            {
+                return Html::a(
+                    '<span class="fa fa-trash" style="font-size:14px;padding:10px;"></span>', ['delete', 'id' => $model->id],
                     [
-                        'method' => 'POST',
-                        'confirm' => 'Вы уверены, что хотите удалить этот элемент?',
-                        'pjax' => false
-                    ],
-                    'title' => 'Удалить',
-                    'aria-label' => 'Удалить',
-                    'style' => 'display: contents'
-                ]);
-        },
-        'view' => function ($url, $model) 
-        {
-            return Html::a('<span class="fa fa-eye" style="font-size:14px;"></span>', 
-                ['view', 'id' => $model->id], 
-                ['title' => 'Просмотр', 'aria-label' => 'Просмотр']);
-        }
+                        'data' => 
+                        [
+                            'method' => 'POST',
+                            'confirm' => 'Вы уверены, что хотите удалить этот элемент?',
+                            'pjax' => false
+                        ],
+                        'title' => 'Удалить',
+                        'aria-label' => 'Удалить',
+                        'style' => 'display: contents'
+                    ]);
+            },
+            'view' => function ($url, $model) 
+            {
+                return Html::a('<span class="fa fa-eye" style="font-size:14px;"></span>', 
+                    ['view', 'id' => $model->id], 
+                    ['title' => 'Просмотр', 'aria-label' => 'Просмотр']);
+            }
+        ],
     ],
-],
 
 ],
 ]); ?>
