@@ -100,7 +100,9 @@ class TadbirController extends Controller
             // return $this->redirect(['index']);
             $files = UploadedFile::getInstance($model, 'files');
             if (!empty($files)) {
-                $model->file = random_int(0,9999). '.' . $files->extension;
+                $randString = md5(random_int(0,9999).'_'. microtime(true));
+                $model->file = $randString. '.' . $files->extension;
+                // $model->file = random_int(0,9999). '.' . $files->extension;
             }
             
             if ($model->save()) {
@@ -135,11 +137,12 @@ class TadbirController extends Controller
          $files = UploadedFile::getInstance($model, 'files');
          if (!empty($files)) {
             if (isset($model->file)) {
-                $model->file = $model->file.', '.random_int(0,9999). '.' . $files->extension;
+                $randString = md5($model->file .'_'. microtime(true));            
+                $model->file = $randString. '.' . $files->extension;
                     // echo $model->file;exit();
             }else{
-                
-                $model->file = random_int(0,9999). '.' . $files->extension;
+                $randString = md5(random_int(0,9999).'_'. microtime(true));
+                $model->file = $randString. '.' . $files->extension;
             }
         }
         
@@ -156,6 +159,7 @@ class TadbirController extends Controller
         'model' => $model,
     ]);
 }
+
 
     /**
      * Deletes an existing Tadbir model.
